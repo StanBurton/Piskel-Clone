@@ -1,15 +1,26 @@
 import style from "./index.scss";
-import div from "../canvas";
 
 function tools(state) {
     function liGenerate() {
         let arr = [];
-        for(let i = 0; i < arrIcons.length; i++){
+        for (let i = 0; i < arrIcons.length; i++) {
             let li = document.createElement("li");
             li.innerHTML = arrIcons[i];
-            arr.push(li)
+            arr.push(li);
         }
         return arr;
+    }
+    function checkColor() {
+        if (state.colors) {
+            divOne.style.backgroundImage = "none";
+            divOne.style.backgroundColor = state.colors.current;
+            divTwo.style.backgroundImage = "none";
+            divTwo.style.backgroundColor = state.colors.previous;
+        }
+        else {
+            divOne.removeAttribute("style");
+            divTwo.removeAttribute("style");
+        }
     }
 
     const arrIcons = [
@@ -28,19 +39,18 @@ function tools(state) {
         `<i class="fas fa-adjust" />`,
         `<i class="fab fa-flipboard" />`,
         `<i class="fas fa-eye-dropper" />`
-    ]
+    ];
 
     const mainDiv = document.createElement("div");
     mainDiv.className = "tools";
 
     let divForSize = document.createElement("div");
-    for (let i = 0; i < 4; i++){
+    for (let i = 0; i < 4; i++) {
         let sizeDiv = document.createElement("div");
-        sizeDiv.setAttribute('class', "sizeDiv");
+        sizeDiv.setAttribute("class", "sizeDiv");
         divForSize.appendChild(sizeDiv);
     }
     mainDiv.appendChild(divForSize);
-
 
     let ul = document.createElement("ul");
     liGenerate().forEach(li => ul.appendChild(li));
@@ -58,12 +68,12 @@ function tools(state) {
     divThree.innerHTML = `<i class="fas fa-exchange-alt"></i>`;
     divColor.appendChild(divThree);
     mainDiv.appendChild(divColor);
+    checkColor();
 
     let divKeycommands = document.createElement("div");
-    divKeycommands.innerHTML = `<i class="fas fa-keyboard"></i>`
+    divKeycommands.innerHTML = `<i class="fas fa-keyboard"></i>`;
     divKeycommands.setAttribute("class", "keyCommands");
-    mainDiv.appendChild(divKeycommands)
-
+    mainDiv.appendChild(divKeycommands);
 
     return mainDiv;
 }

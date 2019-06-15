@@ -1,0 +1,92 @@
+@import '../../styles/index';
+
+.frames {
+    @include flexbox(column, flex-start, center);
+    width: 8%;
+    padding: 0.5% 0 0 0;
+    .frame {
+        width: 95%;
+        height: 7.516vw;
+        margin: 0 0 4% 0;
+        box-sizing: border-box;
+        border: 3px solid #444444;
+        position: relative;
+        background-image: url(../../assets/transparent_back_lowOpacity.png);
+        background-size: 670%;
+        background-position: center;
+        border-radius: 0.3vw;
+        overflow: hidden;
+        &:hover {
+            cursor: pointer;
+            border: 3px solid lighten(#444444, 30%);
+        }
+        .iconNum {
+            display: flex;
+            padding: 7% 0;
+            width: 30%;
+            line-height: 100%;
+            position: absolute;
+            text-align: center;
+            background: lighten(#8E7A0E, 30%);
+            border-bottom-right-radius: 10%;
+            i {
+                width: 100%;
+                font-style: normal;
+                vertical-align: center;
+                font-size: 1.3vw;
+                color: #000000;
+            }
+        }
+        .iconDel {
+            @extend .iconNum;
+            display: none;
+            @include iconPosition (0%, 70.5%);
+            padding: 5.5% 0;
+            background: rgba(105, 105, 105, 0.781);
+            border-bottom-right-radius: 0;
+            border-bottom-left-radius: 10%;
+            i {
+                color: #ffffff;
+            }
+        }
+        .iconCopy{
+            @extend .iconDel;
+            @include iconPosition (71.5%, 70.5%);
+            border-bottom-left-radius: 0%;
+            border-top-left-radius: 10%;
+        }
+        .iconMove{
+            @extend .iconDel;
+            @include iconPosition (71.5%, 0%);
+            border-bottom-left-radius: 0;
+            border-top-right-radius: 10%;  
+        }
+        &:hover .iconNum {
+            display: flex;
+        }
+    }
+    button {
+        @include flexbox(row, center, center);
+        width: 95%;
+        box-sizing: border-box;
+        border: 3px solid #444444;
+        border-radius: 0.3vw;
+        background: none;
+        padding: 4% 0;
+        i {
+            padding: 0 0 0 10%;
+            color: #ffffff;
+            font-size: 1.3vw;
+            text-align: right;
+        }
+        span {
+            text-align: left;
+            padding: 0 0 0 8%;
+            color: #888888;
+            font-size: 1vw;
+        }
+        &:hover {
+            border: 3px solid lighten(#8E7A0E, 30%);
+        }
+    }
+}

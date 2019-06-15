@@ -11,6 +11,11 @@
   height: $height;
 }
 
+@mixin iconPosition($top, $left) {
+  top: $top;
+  left: $left;
+}
+
 * {
   margin: 0;
   padding: 0;

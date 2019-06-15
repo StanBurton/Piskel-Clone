@@ -6,7 +6,20 @@ import animation_layers from "./components/animation_layers";
 import optionalPanel from "./components/optionalPanel";
 
 const state = {
-    spriteName: "value"
+    canvasEventFunc: null,
+    frames: [
+        {
+            id: 1
+        },
+        {
+            id: 2
+        },
+    ],
+    spriteName: "value",
+    colors: {
+        current: "red",
+        previous: "blue"
+    }
 };
 
 class APP {
@@ -14,7 +27,7 @@ class APP {
         this.components = [
             header(state),
             tools(state),
-            frames,
+            frames(state),
             canvas,
             animation_layers,
             optionalPanel
