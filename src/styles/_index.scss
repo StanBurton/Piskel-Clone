@@ -6,6 +6,11 @@
   align-items: $align;
 }
 
+@mixin penWidth($width, $height) {
+  width: $width;
+  height: $height;
+}
+
 * {
   margin: 0;
   padding: 0;

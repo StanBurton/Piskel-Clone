@@ -11,22 +11,39 @@
         .sizeDiv {
             position: relative;
             box-sizing: border-box;
-            width: 20%;
-            height: 1.44vw;
+            @include penWidth(20%,1.44vw);
             border: 2px solid #444444;
             &::after {
                 content: " ";
                 position: absolute;
-                top: 25%;
+                top: 26%;
                 left: 25%;
                 width: 50%;
                 height: 50%;
                 background-color: #ffffff;
+                &:first-of-type {
+                    width: 100%;
+                }
             }
             &:hover {
                 cursor: pointer;
                 border: 2px solid lighten(#444444, 30%);
             }
+        }
+        .sizeDiv:nth-child(2)::after {
+            @include penWidth(60%,0.7vw);
+            top: 22%;
+            left: 21%;
+        }
+        .sizeDiv:nth-child(3)::after {
+            @include penWidth(80%,0.931vw);
+            top: 11%;
+            left: 11%;
+        }
+        .sizeDiv:last-child::after {
+            @include penWidth(90%,1.047vw);
+            top: 5%;
+            left: 6.3%;
         }
     }
     ul {
