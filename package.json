@@ -12,6 +12,7 @@
   "author": "Stassras",
   "license": "ISC",
   "devDependencies": {
+    "eslint": "^5.16.0",
     "sass-loader": "^7.1.0",
     "webpack": "^4.34.0",
     "webpack-cli": "^3.3.4",

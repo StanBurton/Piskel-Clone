@@ -1,4 +1,6 @@
-import app from "./app.js"
-const root = document.querySelector("#root");
+import App from "./app.js"
+import mainstyles from "./styles/mainstyles.scss"
 
-root.appendChild(app);
+const body = document.querySelector("body");
+
+body.appendChild(new App().render());

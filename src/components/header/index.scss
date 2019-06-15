@@ -1,0 +1,45 @@
+@import '../../styles/index';
+
+.header {
+    @include flexbox(row, space-between, center);
+    width: 100%;
+    background-color: #2D2D2D;
+    
+    a {
+        color: #ffffff;
+        padding: 0 0 0 2%;
+        font-size: 2vw;
+        font-weight: 900;
+    }
+    h2 {
+        color: #888888;
+        font-weight: 400;
+        font-size: 2vw;
+    }
+    div {
+        padding: 0 2% 0 0;
+        @include flexbox(row, space-between, center);
+
+        button {
+            padding: 0.3vw 0.7vw;
+            color: #000000;
+            font-size: 1vw;
+            font-weight: 700;
+            background-color: #FFD700;
+            border-radius: 0.2vw;
+            cursor: pointer;
+            transition: 0.2s background-color ease-in-out;
+            &:hover {
+                background-color: lighten(#FFD700, 50%);
+                transition: 0.2s background-color ease-in-out;
+            }
+        }
+
+        button:first-child {
+            margin: 0 0.3vw 0 0;
+        }
+
+    }
+
+
+}
