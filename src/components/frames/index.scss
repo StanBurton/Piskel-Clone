@@ -1,12 +1,27 @@
 @import '../../styles/index';
 
 .frames {
-    @include flexbox(column, flex-start, center);
     width: 8%;
-    padding: 0.5% 0 0 0;
+    overflow-x: hidden;
+    height: 46vw;
+    overflow-y: scroll;
+    margin: 0.5% 0 0 0;
+    &::-webkit-scrollbar {
+        -webkit-appearance: none;
+        width: 6px;
+    }
+    &::-webkit-scrollbar-thumb {
+        border-radius: 2px;
+        background-color: #999;
+        cursor: pointer;
+    }
+    &::-webkit-scrollbar-track {
+        background-color: rgba(50, 50, 50, 0.4);
+    }
     .frame {
         width: 95%;
-        height: 7.516vw;
+        box-sizing: border-box;
+        height: 7.154vw;
         margin: 0 0 4% 0;
         box-sizing: border-box;
         border: 3px solid #444444;
@@ -48,6 +63,22 @@
             i {
                 color: #ffffff;
             }
+            // doesnt work because frames oferflow is hidden
+            // &:hover::after {
+            //     display: block;
+            //     padding: 20% 0%;
+            //     text-align: center;
+            //     content: attr(data-info);
+            //     position: absolute;
+            //     width: 320%;
+            //     z-index: 5;
+            //     top: 8%;
+            //     left: 130%;
+            //     font-size: 0.8vw;
+            //     color: #ffffff;
+            //     background-color: #000000cc;
+            //     border-radius: 0.2vw;
+            // }
         }
         .iconCopy{
             @extend .iconDel;
@@ -73,6 +104,7 @@
         border-radius: 0.3vw;
         background: none;
         padding: 4% 0;
+        margin: 0 0 2% 0;
         i {
             padding: 0 0 0 10%;
             color: #ffffff;

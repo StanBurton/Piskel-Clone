@@ -13,12 +13,15 @@ const state = {
         },
         {
             id: 2
-        },
+        }
     ],
     spriteName: "value",
     colors: {
         current: "red",
-        previous: "blue"
+        previous: "#ffffff"
+    },
+    shortCuts: {
+        "Pen Tool": "P"
     }
 };
 

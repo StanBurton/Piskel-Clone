@@ -14,17 +14,20 @@ function frames(state) {
             let iconCopy = document.createElement("div");
             iconCopy.innerHTML = `<i class="far fa-copy"></i>`;
             iconCopy.setAttribute("class", "iconCopy");
+            iconCopy.dataset.info = "Copy this frame";
             frame.appendChild(iconCopy);
 
             if (state.frames.length > 1) {
                 let iconDel = document.createElement("div");
                 iconDel.innerHTML = `<i class="far fa-trash-alt"></i>`;
                 iconDel.setAttribute("class", "iconDel");
+                iconDel.dataset.info = "Delete this frame";
                 frame.appendChild(iconDel);
 
                 let iconMove = document.createElement("div");
                 iconMove.innerHTML = `<i class="fas fa-arrows-alt"></i>`;
                 iconMove.setAttribute("class", "iconMove");
+                iconMove.dataset.info = "Move this frame";
                 frame.appendChild(iconMove);
             }
 

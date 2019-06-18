@@ -3,11 +3,42 @@
 .tools {
     @include flexbox(column, center, center);
     width: 8%;
-    padding: 0.5% 0 0 0;
-    div {
+    margin: 4% 0 0 0;
+    .pen_width {
         @include flexbox(row, space-around, center);
         width: 90%;
         margin: 0 0 5% 0;
+        &::before {
+            display: none;
+            content: "Pen size";
+            position: absolute;
+            z-index: 5;
+            top: 10%;
+            padding: 0% 2%;
+            font-size: 1vw;
+            border-radius: 0.2vw;
+            color: #ffffff;
+            background-color: #000000cc;
+        }
+        &::after {
+            display: none;
+            position: absolute;
+            content: " ";
+            left: 3.3%;
+            z-index: 4;
+            top: 12.8%;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0.7vw 0.7vw 0 0.7vw;
+            border-color: #000000cc transparent transparent transparent;
+        }
+        &:hover:before {
+            display: block;
+        }
+        &:hover:after {
+            display: block;
+        }
         .sizeDiv {
             position: relative;
             box-sizing: border-box;
@@ -99,15 +130,15 @@
             left: 120%;
             font-size: 1vw;
             color: #ffffff;
-            background-color: #000000cc;   
+            background-color: #000000cc;
+            border-radius: 0.2vw;   
         }
     }
     .colorChoose {
         @include flexbox(column, flex-start, flex-start);
         width: 80%;
         position: relative;
-        padding: 2% 0 0 0;
-        margin: 0 0 50% 0;
+        margin: 0 0 30% 0;
         .colorDiv {
             background-image: url("../../assets/transparent_back.svg");
             background-size: 840%;
@@ -128,6 +159,30 @@
                 border: 4px solid lighten(#444444, 30%);
             }
         }
+        .colorDiv:first-child::after {
+            display: none;
+            padding: 5%;
+            text-align: center;
+            content: attr(data-type) " " attr(data-color);
+            position: absolute;
+            width: 95%;
+            z-index: 5;
+            top: 20%;
+            left: 70%;
+            font-size: 0.8vw;
+            color: #ffffff;
+            background-color: #000000cc;
+            border-radius: 0.2vw;
+        }
+        .colorDiv:nth-child(2)::after {
+            @extend .colorDiv:first-child::after;
+            width: 240%;
+            top: 26%;
+            left: 130%;
+        }
+        .colorDiv:hover:after{
+                display: block;
+        }
         div:last-child {
             i {
                 width: 20%;
@@ -135,11 +190,32 @@
                 color: #444444;
                 transform: rotate(45deg);
                 position: absolute;
-                top: 95%;
+                top: 110%;
                 left: 10%;
+                &::after {
+                    font-family: 'Saira Semi Condensed', sans-serif;
+                    font-weight: 400;
+                    display: none;
+                    transform: rotate(-45deg);
+                    padding: 40% 20%;
+                    text-align: center;
+                    content: "Swap Colors (X)";
+                    position: absolute;
+                    width: 400%;
+                    z-index: 5;
+                    top: -240%;
+                    left: 50%;
+                    font-size: 0.8vw;
+                    color: #ffffff;
+                    background-color: #000000cc;
+                    border-radius: 0.2vw;
+                }
                 &:hover {
                     cursor: pointer;
                     color: lighten(#444444, 30%);
+                }
+                &:hover:after{
+                    display: block;
                 }
             }
             
@@ -151,10 +227,32 @@
         i {
             font-size: 2vw;
             color: #8E7A0E;
+            position: relative;
+            &::after {
+                font-family: 'Saira Semi Condensed', sans-serif;
+                font-weight: 400;
+                display: none;
+                padding: 20% 0%;
+                text-align: center;
+                content: "KeyBoard shortcuts";
+                position: absolute;
+                width: 320%;
+                z-index: 5;
+                top: 8%;
+                left: 130%;
+                font-size: 0.8vw;
+                color: #ffffff;
+                background-color: #000000cc;
+                border-radius: 0.2vw;
+            }
             &:hover {
                 color: lighten(#8E7A0E, 30%);
                 cursor: pointer;
             }
+            &:hover:after {
+                display: block;
+            }
+
         }
     }
 

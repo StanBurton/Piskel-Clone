@@ -7,7 +7,7 @@ function tools(state) {
             let li = document.createElement("li");
             li.setAttribute("class", "ul_item");
             li.innerHTML = arrIcons[i][0];
-            li.dataset.description = arrIcons[i][1];
+            li.dataset.description = `${arrIcons[i][1]} (${state.shortCuts[arrIcons[i][1]] || "none"})`;
             arr.push(li);
         }
         return arr;
@@ -47,6 +47,7 @@ function tools(state) {
     mainDiv.className = "tools";
 
     let divForSize = document.createElement("div");
+    divForSize.setAttribute("class", "pen_width")
     for (let i = 0; i < 4; i++) {
         let sizeDiv = document.createElement("div");
         sizeDiv.setAttribute("class", "sizeDiv");
@@ -62,9 +63,13 @@ function tools(state) {
     divColor.setAttribute("class", "colorChoose");
     let divOne = document.createElement("div");
     divOne.setAttribute("class", "colorDiv");
+    divOne.dataset.type = "Primary - LMB";
+    divOne.dataset.color = state.colors.current;
     divColor.appendChild(divOne);
     let divTwo = document.createElement("div");
     divTwo.setAttribute("class", "colorDiv");
+    divTwo.dataset.color = state.colors.previous;
+    divTwo.dataset.type = "Secondary - RMB";
     divColor.appendChild(divTwo);
     let divThree = document.createElement("div");
     divThree.innerHTML = `<i class="fas fa-exchange-alt"></i>`;
