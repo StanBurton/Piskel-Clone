@@ -1,4 +1,4 @@
-@import '../../styles/index';
+@import '../../styles/index.scss';
 
 .tools {
     @include flexbox(column, center, center);
@@ -51,10 +51,11 @@
         flex-wrap: wrap;
         width: 95%;
         height: 31vw;
-        li {
+        .ul_item {
             width: 47%;
             text-align: center;
-            margin: 0 0 4% 0;
+            margin: 0 0 3% 0;
+            position: relative;
             i {
                 width: 100%;
                 font-size: 1.5vw;
@@ -65,7 +66,40 @@
                     cursor: pointer;
                     background-color: lighten(#3A3A3A, 10%);
                 } 
+            }      
+            &:hover:after {
+                display: flex;
             }
+            &:hover:before {
+                display: block;
+            }
+        }
+        .ul_item::before {
+            display: none;
+            position: absolute;
+            content: " ";
+            left: 100%;
+            z-index: 4;
+            top: 35%;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0.5vw 0.8vw 0.5vw 0;
+            border-color: transparent #000000cc transparent 
+        }
+        .ul_item::after {
+            display: none;
+            padding: 20%;
+            text-align: left;
+            content: attr(data-description);
+            position: absolute;
+            width: 250%;
+            z-index: 5;
+            top: 7%;
+            left: 120%;
+            font-size: 1vw;
+            color: #ffffff;
+            background-color: #000000cc;   
         }
     }
     .colorChoose {
@@ -115,7 +149,6 @@
         @include flexbox(column, flex-start, flex-start);
         width: 80%;
         i {
-
             font-size: 2vw;
             color: #8E7A0E;
             &:hover {

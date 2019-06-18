@@ -1,0 +1,21 @@
+@mixin afterToolsElement() {
+  display: flex;
+  content: attr(data-description);
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  font-size: 1vw;
+  background-color: #000000;
+}
+
+.ul_item {
+    &:hover .ul_item::after {
+      display: block;
+      content: attr(data-description);
+      position: absolute;
+      top: 50%;
+      left: 100%;
+      font-size: 1vw;
+      background-color: #000000; 
+    }
+}

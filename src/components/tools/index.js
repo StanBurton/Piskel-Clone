@@ -5,7 +5,9 @@ function tools(state) {
         let arr = [];
         for (let i = 0; i < arrIcons.length; i++) {
             let li = document.createElement("li");
-            li.innerHTML = arrIcons[i];
+            li.setAttribute("class", "ul_item");
+            li.innerHTML = arrIcons[i][0];
+            li.dataset.description = arrIcons[i][1];
             arr.push(li);
         }
         return arr;
@@ -24,21 +26,21 @@ function tools(state) {
     }
 
     const arrIcons = [
-        `<i class="fas fa-pen" />`,
-        `<i class="fas fa-edit" />`,
-        `<i class="fas fa-fill" />`,
-        `<i class="fas fa-fill-drip" />`,
-        `<i class="fas fa-eraser" />`,
-        `<i class="fas fa-arrows-alt-h" />`,
-        `<i class="far fa-square" />`,
-        `<i class="far fa-circle" />`,
-        `<i class="fas fa-arrows-alt" />`,
-        `<i class="fas fa-magic" />`,
-        `<i class="fas fa-vector-square" />`,
-        `<i class="far fa-heart" />`,
-        `<i class="fas fa-adjust" />`,
-        `<i class="fab fa-flipboard" />`,
-        `<i class="fas fa-eye-dropper" />`
+        [`<i class="fas fa-pen" />`, "Pen Tool"],
+        [`<i class="fas fa-edit" />`, "Vertical Mirror Pen"],
+        [`<i class="fas fa-fill" />`, "Paint Bucket Tool"],
+        [`<i class="fas fa-fill-drip" />`, "Paint all pixels of the same color"],
+        [`<i class="fas fa-eraser" />`, "Eraser Tool"],
+        [`<i class="fas fa-arrows-alt-h" />`, "Stroke Tool"],
+        [`<i class="far fa-square" />`, "Rectangle Tool"],
+        [`<i class="far fa-circle" />`, "Circle Tool"],
+        [`<i class="fas fa-arrows-alt" />`, "Move Tool"],
+        [`<i class="fas fa-magic" />`, "Shape Selection"],
+        [`<i class="fas fa-vector-square" />`, "Rectangle Selection"],
+        [`<i class="far fa-heart" />`, "Lasso Selection"],
+        [`<i class="fas fa-adjust" />`, "Lighten"],
+        [`<i class="fab fa-flipboard" />`, "Dithering Tool"],
+        [`<i class="fas fa-eye-dropper" />`, "Color Picker"]
     ];
 
     const mainDiv = document.createElement("div");
