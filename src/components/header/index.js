@@ -1,30 +1,36 @@
 import style from "./index.scss";
 
-function header(state) {
-    const mainDiv = document.createElement("div");
-    mainDiv.className = "header";
+class Header {
+    constructor(state, setState) {
+        this.state = state;
+    }
 
-    let a = document.createElement("a");
-    a.setAttribute("href", "#");
-    let span = document.createElement("span");
-    span.textContent = "PISKEL";
-    a.appendChild(span);
-    mainDiv.appendChild(a);
+    render() {
+        const mainDiv = document.createElement("div");
+        mainDiv.className = "header";
 
-    let projectName = document.createElement("h2");
-    projectName.textContent = state.spriteName || "New Sprite *";
-    mainDiv.appendChild(projectName);
+        let a = document.createElement("a");
+        a.setAttribute("href", "#");
+        let span = document.createElement("span");
+        span.textContent = "PISKEL";
+        a.appendChild(span);
+        mainDiv.appendChild(a);
 
-    let divButtons = document.createElement("div");
-    mainDiv.appendChild(divButtons);
-    let btnCreateSprite = document.createElement("button");
-    btnCreateSprite.textContent = "Create Sprite";
-    divButtons.appendChild(btnCreateSprite);
-    let btnSignIn = document.createElement("button");
-    btnSignIn.textContent = "Sign In";
-    divButtons.appendChild(btnSignIn);
+        let projectName = document.createElement("h2");
+        projectName.textContent = this.state.spriteName || "New Sprite *";
+        mainDiv.appendChild(projectName);
 
-    return mainDiv;
+        let divButtons = document.createElement("div");
+        mainDiv.appendChild(divButtons);
+        let btnCreateSprite = document.createElement("button");
+        btnCreateSprite.textContent = "Create Sprite";
+        divButtons.appendChild(btnCreateSprite);
+        let btnSignIn = document.createElement("button");
+        btnSignIn.textContent = "Sign In";
+        divButtons.appendChild(btnSignIn);
+
+        return mainDiv;
+    }
 }
 
-export default header;
+export default Header;
