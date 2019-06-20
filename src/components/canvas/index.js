@@ -1,5 +1,21 @@
 import style from "./index.scss";
-let div = document.createElement("div");
-div.textContent =  "canvas";
+import canvasWheelEvent from "./events.js"
 
-export default div;
+class Canvas {
+    constructor(state, setStage) {
+        this.state = state;
+    }
+    render() {
+        const mainDiv = document.createElement("div");
+        mainDiv.setAttribute("class", "canvasBlock");
+        mainDiv.onwheel = canvasWheelEvent(this.state);
+
+        let canvas = document.createElement("canvas");
+        canvas.setAttribute("id", "canvas");
+        mainDiv.appendChild(canvas);
+
+        return mainDiv;
+    }
+}
+
+export default Canvas;

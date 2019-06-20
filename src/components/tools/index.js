@@ -6,15 +6,12 @@ class Tools {
     }
 
     render() {
-        function liGenerate(state) {
+        function liGenerate(tools) {
             let arr = [];
-            for (let i = 0; i < arrIcons.length; i++) {
+            for (let i = 1; i < tools.length; i++) {
                 let li = document.createElement("li");
                 li.setAttribute("class", "ul_item");
-                li.innerHTML = arrIcons[i][0];
-                li.dataset.description = `${arrIcons[i][1]} (${state.shortCuts[
-                    arrIcons[i][1]
-                ] || "none"})`;
+                li.dataset.description = `${tools[i].name} (${tools[i].shortCut.hint || "none"})`;
                 arr.push(li);
             }
             return arr;
@@ -31,24 +28,6 @@ class Tools {
             }
         }
 
-        const arrIcons = [
-            [`<i class="fas fa-pen" />`, "Pen Tool"],
-            [`<i class="fas fa-edit" />`, "Vertical Mirror Pen"],
-            [`<i class="fas fa-fill" />`, "Paint Bucket Tool"],
-            [`<i class="fas fa-fill-drip" />`,"Paint all pixels of the same color"],
-            [`<i class="fas fa-eraser" />`, "Eraser Tool"],
-            [`<i class="fas fa-arrows-alt-h" />`, "Stroke Tool"],
-            [`<i class="far fa-square" />`, "Rectangle Tool"],
-            [`<i class="far fa-circle" />`, "Circle Tool"],
-            [`<i class="fas fa-arrows-alt" />`, "Move Tool"],
-            [`<i class="fas fa-magic" />`, "Shape Selection"],
-            [`<i class="fas fa-vector-square" />`, "Rectangle Selection"],
-            [`<i class="far fa-heart" />`, "Lasso Selection"],
-            [`<i class="fas fa-adjust" />`, "Lighten"],
-            [`<i class="fab fa-flipboard" />`, "Dithering Tool"],
-            [`<i class="fas fa-eye-dropper" />`, "Color Picker"]
-        ];
-
         const mainDiv = document.createElement("div");
         mainDiv.className = "tools";
 
@@ -62,7 +41,7 @@ class Tools {
         mainDiv.appendChild(divForSize);
 
         let ul = document.createElement("ul");
-        liGenerate(this.state).forEach(li => ul.appendChild(li));
+        liGenerate(this.state.tools).forEach(li => ul.appendChild(li));
         mainDiv.appendChild(ul);
 
         let divColor = document.createElement("div");

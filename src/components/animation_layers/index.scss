@@ -1,0 +1,65 @@
+@import '../../styles/index';
+
+.animation_player {
+    @include flexbox(column, flex-start, center);
+    margin: 0.5% 0 0 0;
+    width: 15%;
+
+    .animationBlock {
+        @include flexbox(column, flex-start, center);
+        width: 100%;
+        .animation {
+            width: 100%;
+            height: 15vw;
+            background-image: url(../../assets/transparent_back_lowOpacity.png);
+            background-size: 100%;
+            background-position: center;
+        }
+        .animation_settings {
+            @include flexbox(row, flex-start, center);
+            width: 100%;
+            padding: 1% 0;
+            background-color: #333333;
+            .layersButton {
+                width: 15%;
+                position: relative;
+                text-align: center;
+                box-sizing: border-box;
+                border-right: 1px solid #1A1A1A;
+                i {
+                    color: #AAAAAA;
+                    font-size: 1vw;
+                    &:hover {
+                        color: #ffffff;
+                        cursor: pointer;
+                    }
+                }
+                &:hover::after {
+                    display: block;
+                    text-align: left;
+                    content: attr(data-description);
+                    position: absolute;
+                    width: 390%;
+                    z-index: 5;
+                    top: 150%;
+                    left: -120%;
+                    font-size: 0.8vw;
+                    color: #ffffff;
+                    background-color: #000000cc;
+                    border-radius: 0.2vw;
+                }
+            }
+            .fpsView {
+                width: 30%;
+                text-align: center;
+                color: #AAAAAA;
+                font-size: 1vw;
+            }
+            .fpsRange {
+                width: 50%;
+                box-sizing: border-box;
+                margin: 0 auto;
+            }
+        }
+    }
+}

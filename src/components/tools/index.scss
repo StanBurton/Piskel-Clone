@@ -3,19 +3,22 @@
 .tools {
     @include flexbox(column, center, center);
     width: 8%;
-    margin: 4% 0 0 0;
+    margin: 1% 0.1% 0 0;
     .pen_width {
         @include flexbox(row, space-around, center);
         width: 90%;
         margin: 0 0 5% 0;
         &::before {
             display: none;
-            content: "Pen size";
+            text-align: center;
+            line-height: 1.2vw;
+            width: 5%;
+            content: "Pen size from 1 to 4";
             position: absolute;
             z-index: 5;
-            top: 10%;
-            padding: 0% 2%;
-            font-size: 1vw;
+            top: 6.8%;
+            padding: 0% 1%;
+            font-size: 0.9vw;
             border-radius: 0.2vw;
             color: #ffffff;
             background-color: #000000cc;
@@ -26,7 +29,7 @@
             content: " ";
             left: 3.3%;
             z-index: 4;
-            top: 12.8%;
+            top: 11.3%;
             width: 0;
             height: 0;
             border-style: solid;
@@ -44,6 +47,7 @@
             box-sizing: border-box;
             @include penWidth(20%,1.44vw);
             border: 2px solid #444444;
+            overflow: hidden;
             &::after {
                 content: " ";
                 position: absolute;
@@ -72,8 +76,8 @@
             left: 11%;
         }
         .sizeDiv:last-child::after {
-            @include penWidth(90%,1.047vw);
-            top: 5%;
+            @include penWidth(90%,1.1vw);
+            top: 4%;
             left: 6.3%;
         }
     }
@@ -84,26 +88,65 @@
         height: 31vw;
         .ul_item {
             width: 47%;
-            text-align: center;
+            height: 3.571vw;
             margin: 0 0 3% 0;
             position: relative;
-            i {
-                width: 100%;
-                font-size: 1.5vw;
-                color: #ffffff;
-                padding: 29.3% 0;
-                background-color: #3A3A3A;
-                &:hover {
-                    cursor: pointer;
-                    background-color: lighten(#3A3A3A, 10%);
-                } 
-            }      
+            background-image: url(../assets/icons.png);
+            background-size: 700%;
+            background-position: 10.8vw -7.2vw;
+            background-color: #3A3A3A;
+            &:hover {
+                cursor: pointer;
+                background-color: lighten(#3A3A3A, 30%);
+            }
             &:hover:after {
                 display: flex;
             }
             &:hover:before {
                 display: block;
             }
+        }
+        .ul_item:nth-child(2) {
+            background-position: 25vw -10.65vw;
+        }
+        .ul_item:nth-child(3) {
+            background-position: 32.15vw -7vw;
+        }
+        .ul_item:nth-child(4) {
+            background-position: 32.15vw -10.8vw;
+        }
+        .ul_item:nth-child(5) {
+            background-position: 46.4vw -17.8vw;
+        }
+        .ul_item:nth-child(6) {
+            background-position: 46.3vw -10.6vw;
+        }
+        .ul_item:nth-child(7) {
+            background-position: 10.8vw 0vw;
+        }
+        .ul_item:nth-child(8) {
+            background-position: 7.2vw -3.6vw;
+        }
+        .ul_item:nth-child(9) {
+            background-position: 35.6vw -17.8vw
+        }
+        .ul_item:nth-child(10) {
+            background-position: 42.8vw -10.6vw;
+        }
+        .ul_item:nth-child(11) {
+            background-position: 10.8vw -3.6vw;
+        }
+        .ul_item:nth-child(12) {
+            background-position: 42.8vw -17.8vw;
+        }
+        .ul_item:nth-child(13) {
+            background-position: 39.2vw -17.8vw;
+        }
+        .ul_item:nth-child(14) {
+            background-position: 50vw -17.8vw;
+        }
+        .ul_item:nth-child(15) {
+            background-position: 3.6vw 0vw;
         }
         .ul_item::before {
             display: none;
@@ -133,6 +176,8 @@
             background-color: #000000cc;
             border-radius: 0.2vw;   
         }
+        
+
     }
     .colorChoose {
         @include flexbox(column, flex-start, flex-start);

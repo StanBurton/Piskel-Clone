@@ -6,6 +6,11 @@
   align-items: $align;
 }
 
+@mixin bgPosition($left, $top) {
+  background-position: $left $top;
+}
+
+
 @mixin penWidth($width, $height) {
   width: $width;
   height: $height;
