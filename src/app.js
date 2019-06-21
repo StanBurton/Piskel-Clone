@@ -16,6 +16,8 @@ class APP {
             canvasSettings: {
                 width: "500px",
                 height: "500px",
+                rows: 32,
+                columns: 32,
                 scale: 1
             },
             canvasEventFunc: null,

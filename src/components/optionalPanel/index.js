@@ -1,9 +1,14 @@
 import style from "./index.scss";
+import menuOpenFunc from "./toogleEventfunc.js";
+
 class Optional_panel {
     constructor(state, setStage){
         this.state = state;
     }
     render() {
+
+        const arrSettings = ["Preferences", "Resize", "Save", "Export", "Import"];
+
         const mainDiv = document.createElement("div");
         mainDiv.setAttribute("class", "optional_panel");
 
@@ -15,9 +20,11 @@ class Optional_panel {
         divToogleCentered.setAttribute("class", "divToogleCentered");
         divToogle.appendChild(divToogleCentered);
 
-        for(let i = 0; i < 5; i++){
+        for(let i = 0; i < arrSettings.length; i++){
             let toogle = document.createElement("div");
             toogle.setAttribute("class", "toogle");
+            toogle.dataset.description = arrSettings[i];
+            toogle.onclick = menuOpenFunc(this.state, arrSettings[i]);
             divToogleCentered.appendChild(toogle);
         }
 
@@ -29,25 +36,37 @@ class Optional_panel {
         menusCentered.setAttribute("class", "menusCentered");
         menus.appendChild(menusCentered);
 
-        let menuSettings = document.createElement("div");
-        menuSettings.setAttribute("class", "menuSettings");
-        menusCentered.appendChild(menuSettings);
+        let menuPreferences = document.createElement("div");
+        menuPreferences.setAttribute("class", `menu${arrSettings[0]}`);
+        menusCentered.appendChild(menuPreferences);
 
-
+        ///RESIZE
         let menuResize = document.createElement("div");
-        menuResize.setAttribute("class", "menuResize");
+        menuResize.setAttribute("class", `menu${arrSettings[1]}`);
+
+        let inputWidthBlock = document.createElement("div");
+        inputWidthBlock.setAttribute("class", "inputWidthBlock");
+        menuResize.appendChild(inputWidthBlock);
+
+        let inputWidth = document.createElement("input");
+        inputWidth.setAttribute("id", "inputWidth");
+        inputWidth.setAttribute("type", "number");
+        inputWidth.setAttribute("placeholder", this.state.canvasSettings.rows);
+        inputWidthBlock.appendChild(inputWidth);
+
+        let inputHeight = document.createElement("div");
         menusCentered.appendChild(menuResize);
-
+        ///SAVE
         let menuSave = document.createElement("div");
-        menuSave.setAttribute("class", "menuSave");
+        menuSave.setAttribute("class", `menu${arrSettings[2]}`);
         menusCentered.appendChild(menuSave);
-
+        ///EXPORT
         let menuExport = document.createElement("div");
-        menuExport.setAttribute("class", "menuExport");
+        menuExport.setAttribute("class", `menu${arrSettings[3]}`);
         menusCentered.appendChild(menuExport);
-
+        ///IMPORT
         let menuImport = document.createElement("div");
-        menuExport.setAttribute("class", "menuImport");
+        menuImport.setAttribute("class", `menu${arrSettings[4]}`);
         menusCentered.appendChild(menuImport);
 
         return mainDiv
