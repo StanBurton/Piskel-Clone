@@ -33,7 +33,7 @@
         overflow: hidden;
         &:hover {
             cursor: pointer;
-            border: 3px solid lighten(#444444, 30%);
+            border: 3px solid lighten(#444444, $hoverLighthen);
         }
         .iconNum {
             display: flex;
@@ -42,7 +42,7 @@
             line-height: 100%;
             position: absolute;
             text-align: center;
-            background: lighten(#8E7A0E, 30%);
+            background: lighten(#8E7A0E, $hoverLighthen);
             border-bottom-right-radius: 10%;
             i {
                 width: 100%;
@@ -118,7 +118,7 @@
             font-size: 1vw;
         }
         &:hover {
-            border: 3px solid lighten(#8E7A0E, 30%);
+            border: 3px solid lighten(#8E7A0E, $hoverLighthen);
         }
     }
 }

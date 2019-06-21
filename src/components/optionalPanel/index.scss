@@ -2,10 +2,11 @@
 
 .optional_panel {
     position: absolute;
+    z-index: 1;
     width: 23%;
     height: 100%;
     top: 2%;
-    left: 94.23%;
+    left: 96.6%;
     @include flexbox (row, flex-end, center);
     .divToogle {
         box-sizing: border-box;
@@ -21,16 +22,20 @@
                 height: 19%;
                 background-color: #444444;
                 background-image: url(../assets/icons.png);
+                background-size: 700%;
                 &:hover {
-                    background-color: lighten(#444444, 30%);
+                    background-color: lighten(#444444, $hoverLighthen);
                     cursor: pointer;
                 }
+            }
+            .toogle:first-child {
+                background-position: 44.8vw -13.7vw;
             }
         }
     }
     .menus {
         box-sizing: border-box;
-        width: 75%;
+        width: 85%;
         height: 100%;
         @include flexbox (column, center, center);
         .menusCentered {

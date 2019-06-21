@@ -4,6 +4,8 @@
     @include flexbox(row, space-between, center);
     width: 100%;
     background-color: #2D2D2D;
+    position: relative;
+    z-index: 2;
     
     a {
         color: #ffffff;
@@ -27,10 +29,10 @@
             font-weight: 700;
             background-color: #FFD700;
             border-radius: 0.2vw;
-            cursor: pointer;
             transition: 0.2s background-color ease-in-out;
             &:hover {
-                background-color: lighten(#FFD700, 50%);
+                cursor: pointer;
+                background-color: lighten(#FFD700, $hoverLighthen);
                 transition: 0.2s background-color ease-in-out;
             }
         }
