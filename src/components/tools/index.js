@@ -1,17 +1,28 @@
 import style from "./index.scss";
+import penToolFunc from "./toolsFuncs/penToolFunc.js"
 
 class Tools {
-    constructor(state, setState) {
+    constructor(state, setState, that) {
         this.state = state;
+        this.toolsFuncs = {
+            "pentoolFunc": penToolFunc,
+        }
+        this.setState = setState;
+        this.that = that
     }
 
     render() {
-        function liGenerate(tools) {
+        function liGenerate(state, setState, that) {
             let arr = [];
-            for (let i = 1; i < tools.length; i++) {
+            for (let i = 1; i < state.tools.length; i++) {
                 let li = document.createElement("li");
-                li.setAttribute("class", "ul_item");
-                li.dataset.description = `${tools[i].name} (${tools[i].shortCut.hint || "none"})`;
+                if(state.canvasEventFunc.name == state.tools[i].slug){
+                    li.setAttribute("class", "ul_item_active");
+                }else {
+                    li.setAttribute("class", "ul_item");
+                }
+                li.dataset.description = `${state.tools[i].name} (${state.tools[i].shortCut.hint || "none"})`;
+                li.onclick = penToolFunc(state, setState, that);
                 arr.push(li);
             }
             return arr;
@@ -41,7 +52,7 @@ class Tools {
         mainDiv.appendChild(divForSize);
 
         let ul = document.createElement("ul");
-        liGenerate(this.state.tools).forEach(li => ul.appendChild(li));
+        liGenerate(this.state, this.setState, this.that).forEach(li => ul.appendChild(li));
         mainDiv.appendChild(ul);
 
         let divColor = document.createElement("div");

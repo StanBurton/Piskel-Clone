@@ -1,5 +1,6 @@
 import style from "./index.scss";
 import menuOpenFunc from "./toogleEventfunc.js";
+import inputWidthAndHeightFunc from "./inputWidthAndHeightFunc.js"
 
 class Optional_panel {
     constructor(state, setStage){
@@ -43,19 +44,71 @@ class Optional_panel {
         ///RESIZE
         let menuResize = document.createElement("div");
         menuResize.setAttribute("class", `menu${arrSettings[1]}`);
+        menusCentered.appendChild(menuResize);
+
+        let h3Resize = document.createElement("h3");
+        h3Resize.setAttribute("class", "h3Resize");
+        h3Resize.textContent = "RESIZE";
+        menuResize.appendChild(h3Resize);
 
         let inputWidthBlock = document.createElement("div");
         inputWidthBlock.setAttribute("class", "inputWidthBlock");
         menuResize.appendChild(inputWidthBlock);
 
+        let widthSpan = document.createElement("span");
+        widthSpan.setAttribute("class", "widthSpan");
+        widthSpan.textContent = "Width";
+        inputWidthBlock.appendChild(widthSpan);
+
         let inputWidth = document.createElement("input");
         inputWidth.setAttribute("id", "inputWidth");
         inputWidth.setAttribute("type", "number");
+        inputWidth.setAttribute("min", "0");
+        inputWidth.setAttribute("max", "500");
         inputWidth.setAttribute("placeholder", this.state.canvasSettings.rows);
+        inputWidth.onchange = inputWidthAndHeightFunc(this.state);
         inputWidthBlock.appendChild(inputWidth);
 
-        let inputHeight = document.createElement("div");
-        menusCentered.appendChild(menuResize);
+        let pxSpanWidth = document.createElement("span");
+        pxSpanWidth.setAttribute("class", "pxSpanWidth");
+        pxSpanWidth.textContent = "px";
+        inputWidthBlock.appendChild(pxSpanWidth);
+        ///Height
+        let inputHeightBlock = document.createElement("div");
+        inputHeightBlock.setAttribute("class", "inputHeightBlock");
+        menuResize.appendChild(inputHeightBlock);
+
+        let heightSpan = document.createElement("span");
+        heightSpan.setAttribute("class", "heightSpan");
+        heightSpan.textContent = "Height";
+        inputHeightBlock.appendChild(heightSpan);
+
+        let inputHeight = document.createElement("input");
+        inputHeight.setAttribute("id", "inputHeight");
+        inputHeight.setAttribute("type", "number");
+        inputHeight.setAttribute("min", "0");
+        inputHeight.setAttribute("max", "500");
+        inputHeight.setAttribute("placeholder", this.state.canvasSettings.columns);
+        inputHeight.onchange = inputWidthAndHeightFunc(this.state);
+        inputHeightBlock.appendChild(inputHeight);
+
+        let pxSpanHeight = document.createElement("span");
+        pxSpanHeight.setAttribute("class", "pxSpanHeight");
+        pxSpanHeight.textContent = "px";
+        inputHeightBlock.appendChild(pxSpanHeight);
+
+        let buttonBlock = document.createElement("div");
+        buttonBlock.setAttribute("class", "buttonBlock");
+        menuResize.appendChild(buttonBlock);
+
+        let buttonResize = document.createElement("button");
+        buttonResize.setAttribute("class", "buttonResize");
+        buttonResize.textContent = "Resize";
+        buttonResize.onclick = function(){
+            alert("need rerender");
+        }
+        buttonBlock.appendChild(buttonResize);
+
         ///SAVE
         let menuSave = document.createElement("div");
         menuSave.setAttribute("class", `menu${arrSettings[2]}`);

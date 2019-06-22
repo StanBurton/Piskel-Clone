@@ -118,6 +118,7 @@
             font-size: 1vw;
         }
         &:hover {
+            cursor: pointer;
             border: 3px solid lighten(#8E7A0E, $hoverLighthen);
         }
     }

@@ -91,27 +91,83 @@
                 height: 100%;
                 position: relative;
                 display: none;
-                background-color: white;
             }
             .menuResize {
                 @extend .menuPreferences;
-                background-color: black;  
+                @include flexbox(column, flex-start, center);
+                display: none;
+                .h3Resize {
+                    width: 100%;
+                    font-weight: 700;
+                    text-align: left;
+                    color: #FFD700;
+                    border-bottom: 0.1vw solid  #CCCCCC;
+
+                }
+                .inputWidthBlock {
+                    @include flexbox(row, flex-start, center);
+                    width: 100%;
+                    color: #CCCCCC;
+                    padding: 5% 0 0 0;
+                    font-size: 1vw;
+                    font-weight: 700;
+                    span:first-child {
+                        width: 20%;
+                        margin: 0 2% 0 0;
+                    }
+                    input {
+                        width: 20%;
+                        padding: 1% 0;
+                        color:  #FFFFFF;
+                        text-align: center;
+                        background-color: #000000;
+                        font-size: 1vw;
+                        margin: 0 2% 0 0;
+                        border: 1px solid #CCCCCC;
+                        border-radius: 0.2vw;
+                    }
+                }
+                .inputHeightBlock {
+                    @extend .inputWidthBlock;
+                }
+                .buttonBlock {
+                    padding: 5% 0 0 0;
+                    width: 100%;
+                    text-align: left;
+                    .buttonResize {
+                        width: 20%;
+                        font-size: 0.9vw;
+                        font-weight: 700;
+                        padding: 2% 0;
+                        color: #000000;
+                        background-color: #FFD700;
+                        border-radius: 0.4vw;
+                        &:hover {
+                            cursor: pointer;
+                            background-color: lighten(#FFD700, $hoverLighthen);
+                            transition: 0.2s background-color ease-in-out;
+                        }
+                    }
+                }
             }
             .menuSave {
                 @extend .menuPreferences;
                 background-color: red;
+                display: none;
             }
             .menuExport {
                 @extend .menuPreferences;
                 background-color: yellow;
+                display: none;
             }
             .menuImport {
                 @extend .menuPreferences;
                 background-color: blue;
+                display: none;
             }
             .menu_active {
                 @extend .menuPreferences;
-                display: block;
+                display: flex;
             }
         }
     }

@@ -176,6 +176,10 @@
             background-color: #000000cc;
             border-radius: 0.2vw;   
         }
+        .ul_item_active {
+            @extend .ul_item;
+            border: 1px solid yellow;
+        }
         
 
     }

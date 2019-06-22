@@ -9,6 +9,7 @@ import Optional_panel from "./components/optionalPanel";
 
 class APP {
     constructor() {
+        this.that = this;
         this.state = {
             animationSettings: {
                 fpsValue: 1
@@ -20,7 +21,9 @@ class APP {
                 columns: 32,
                 scale: 1
             },
-            canvasEventFunc: null,
+            canvasEventFunc: function penTool() {
+                console.log("privet");
+            },
             frames: [
                 {
                     id: 1
@@ -35,6 +38,7 @@ class APP {
                 current: "red",
                 previous: "#ffffff"
             },
+            penWidth: 4,
             tools: [
                 {
                     name: "Toogle onion skin",
@@ -46,7 +50,7 @@ class APP {
                 },
                 {
                     name: "Pen Tool",
-                    slug: "penToolFunc",
+                    slug: "penTool",
                     shortCut: {
                         key: 23,
                         hint: "P"
@@ -54,7 +58,7 @@ class APP {
                 },
                 {
                     name: "Vertical Mirror Pen",
-                    slug: "mirrorPenToolFunc",
+                    slug: "mirrorPen",
                     shortCut: {
                         key: 24,
                         hint: "H"
@@ -169,7 +173,7 @@ class APP {
 
         this.components = [
             new Header(this.state, this.setState),
-            new Tools(this.state, this.setState),
+            new Tools(this.state, this.setState, this.that),
             new Frames(this.state, this.setState),
             new Canvas(this.state, this.setState),
             new Animation_layers(this.state, this.setState),
