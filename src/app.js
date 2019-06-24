@@ -4,12 +4,14 @@ import Frames from "./components/frames";
 import Canvas from "./components/canvas";
 import Animation_layers from "./components/animation_layers";
 import Optional_panel from "./components/optionalPanel";
+import { timingSafeEqual } from "crypto";
 
 
 
 class APP {
     constructor() {
         this.that = this;
+        this.count = 0;
         this.state = {
             animationSettings: {
                 fpsValue: 1
@@ -24,21 +26,18 @@ class APP {
             canvasEventFunc: function penTool() {
                 console.log("privet");
             },
+            count: 1,
             frames: [
                 {
-                    id: 1
-        
+                    id: ++this.count
                 },
-                {
-                    id: 2
-                }
             ],
             spriteName: "value",
             colors: {
                 current: "red",
                 previous: "#ffffff"
             },
-            penWidth: 4,
+            penWidth: 2,
             tools: [
                 {
                     name: "Toogle onion skin",
@@ -58,7 +57,7 @@ class APP {
                 },
                 {
                     name: "Vertical Mirror Pen",
-                    slug: "mirrorPen",
+                    slug: "mirrorPenToolFunc",
                     shortCut: {
                         key: 24,
                         hint: "H"
@@ -66,7 +65,7 @@ class APP {
                 },
                 {
                     name: "Paint Bucket Tool",
-                    slug: "bucketToolFunc",
+                    slug: "bucketTool",
                     shortCut: {
                         key: 25,
                         hint: "J"
@@ -82,7 +81,7 @@ class APP {
                 },
                 {
                     name: "Eraser Tool",
-                    slug: "eraserToolFunc",
+                    slug: "eraserTool",
                     shortCut: {
                         key: 27,
                         hint: "L"
@@ -174,24 +173,34 @@ class APP {
         this.components = [
             new Header(this.state, this.setState),
             new Tools(this.state, this.setState, this.that),
-            new Frames(this.state, this.setState),
+            new Frames(this.state, this.setState, this.that),
             new Canvas(this.state, this.setState),
             new Animation_layers(this.state, this.setState),
             new Optional_panel(this.state, this.setState)
         ];
     }
+
     setState(newState){
         this.state = Object.assign(this.state, newState);
+        console.log("MAIN STATE: ");
+        console.log(this.state);
         this.render();
     }
-    render() {
-        return this.packaging();
+
+    render(check) {
+        if(check){
+            return this.packaging();
+        }else{
+            document.querySelector(".main").remove();
+            document.querySelector("body").appendChild(this.packaging());
+
+        }
     }
+
     packaging() {
         let mainDiv = document.createElement("div");
         mainDiv.className = "main";
         this.components.forEach(component => mainDiv.appendChild(component.render()));
-
         return mainDiv;
     }
 }

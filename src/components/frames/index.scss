@@ -37,7 +37,6 @@
         }
         .iconNum {
             display: flex;
-            padding: 7% 0;
             width: 30%;
             line-height: 100%;
             position: absolute;
@@ -46,6 +45,7 @@
             border-bottom-right-radius: 10%;
             i {
                 width: 100%;
+                padding: 20% 0;
                 font-style: normal;
                 vertical-align: center;
                 font-size: 1.3vw;
@@ -56,7 +56,6 @@
             @extend .iconNum;
             display: none;
             @include iconPosition (0%, 70.5%);
-            padding: 5.5% 0;
             background: rgba(105, 105, 105, 0.781);
             border-bottom-right-radius: 0;
             border-bottom-left-radius: 10%;
@@ -97,7 +96,7 @@
         }
     }
     button {
-        @include flexbox(row, center, center);
+        @include flexbox(row, flex-start, center);
         width: 95%;
         box-sizing: border-box;
         border: 3px solid #444444;
