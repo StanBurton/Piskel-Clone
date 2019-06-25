@@ -1,6 +1,7 @@
 @import '../../styles/index';
 
 .frames {
+    position: relative;
     width: 8%;
     overflow-x: hidden;
     height: 46vw;
@@ -31,6 +32,8 @@
         background-position: center;
         border-radius: 0.3vw;
         overflow: hidden;
+        user-select: none;
+        transition: 0.1s all;
         &:hover {
             cursor: pointer;
             border: 3px solid lighten(#444444, $hoverLighthen);

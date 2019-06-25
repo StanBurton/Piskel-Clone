@@ -2,6 +2,7 @@ import style from "./index.scss";
 import addFrameFunc from "./addFrameFunc.js"
 import deleteFrameFunc from "./deleteFrameFunc.js"
 import copyFrameFunc from "./copyFrameFunc.js"
+import moveFrameFunc from "./moveFrameFunc.js"
 
 class Frames {
     constructor(state, setState, that) {
@@ -42,6 +43,7 @@ class Frames {
                 iconMove.innerHTML = `<i class="fas fa-arrows-alt"></i>`;
                 iconMove.setAttribute("class", "iconMove");
                 iconMove.dataset.info = "Move this frame";
+                iconMove.onmousedown = moveFrameFunc(this.state, this.setState, this.that);
                 frame.appendChild(iconMove);
             }
 
