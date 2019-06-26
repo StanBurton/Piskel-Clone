@@ -1,4 +1,5 @@
 import style from "./index.scss";
+import frameClickFunc from "./frameClickFunc.js"
 import addFrameFunc from "./addFrameFunc.js"
 import deleteFrameFunc from "./deleteFrameFunc.js"
 import copyFrameFunc from "./copyFrameFunc.js"
@@ -18,6 +19,10 @@ class Frames {
             frame.dataset.id = this.state.frames[i].id;
             frame.dataset.position = i + 1;
             frame.setAttribute("class", "frame");
+            if(i == this.state.currFrame){
+                frame.setAttribute("class", "frame frame_active");
+            }
+            frame.onclick = frameClickFunc(this.state, this.setState, this.that)
             ///need to add canvas here
             let iconNum = document.createElement("div");
             iconNum.innerHTML = `<i>${frame.getAttribute("data-position")}</i>` ;

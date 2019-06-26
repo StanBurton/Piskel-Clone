@@ -3,4 +3,10 @@ import mainstyles from "./styles/mainstyles.scss"
 
 const body = document.querySelector("body");
 
-body.appendChild(new App().render(1));
+let mainApp = new App();
+body.appendChild(mainApp.render(1));
+mainApp.drawCanvas()
+
+window.onresize = function(){
+    mainApp.render()
+}

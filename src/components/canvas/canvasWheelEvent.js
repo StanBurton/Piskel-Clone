@@ -1,6 +1,6 @@
-function canvasWheelSize(state) {
+function canvasWheelSize(state,that) {
     return function(e) {
-        var delta = e.deltaY;
+        let delta = e.deltaY;
         if (delta > 0) {
             if (state.canvasSettings.scale < 2) {
                 state.canvasSettings.scale += 0.05;
@@ -13,6 +13,8 @@ function canvasWheelSize(state) {
         document.querySelector("#canvas").style.transform = `scale(${
             state.canvasSettings.scale
         })`;
+
+        that.setStateSilent(state);
     };
 };
 

@@ -98,6 +98,14 @@
             display: flex;
         }
     }
+    .frame_active {
+        @extend .frame;
+        border: 3px solid #FFD700;
+        &:hover {
+            cursor: pointer;
+            border: 3px solid lighten(#FFD700, $hoverLighthen);
+        } 
+    }
     button {
         @include flexbox(row, flex-start, center);
         width: 95%;

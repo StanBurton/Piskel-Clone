@@ -1,8 +1,11 @@
 import style from "./index.scss";
+import fpsChangeFunc from "./fpsChangeFunc.js";
 
 class Animation_layers {
-    constructor(state, setStage) {
+    constructor(state, setStage, that) {
         this.state = state;
+        this.setStage = setStage;
+        this.that = that;
     }
     render() {
         const mainDiv = document.createElement("div");
@@ -20,8 +23,7 @@ class Animation_layers {
 
         let layersButton = document.createElement("div");
         layersButton.innerHTML = `<i class="fas fa-layer-group"></i>`;
-        layersButton.dataset.description = `${this.state.tools[0].name} (${this.state.tools[0]
-            .shortCut.hint})`;
+        layersButton.dataset.description = `${this.state.tools[0].name} (${this.state.tools[0].shortCut.hint})`;
         layersButton.setAttribute("class", "layersButton");
         animationSettings.appendChild(layersButton);
 
@@ -33,8 +35,10 @@ class Animation_layers {
         let fpsRange = document.createElement("input");
         fpsRange.setAttribute("class", "fpsRange");
         fpsRange.setAttribute("type", "range");
-        fpsRange.setAttribute("min", "0");
+        fpsRange.setAttribute("min", "1");
         fpsRange.setAttribute("max", "24");
+        fpsRange.setAttribute("value", `${+this.state.animationSettings.fpsValue}`);
+        fpsRange.onchange = fpsChangeFunc(this.state, this.setStage, this.that)
         animationSettings.appendChild(fpsRange);
 
         divAnimation.appendChild(animationSettings);

@@ -11,6 +11,8 @@
         .animation {
             width: 100%;
             height: 15vw;
+            position: relative;
+            overflow: hidden;
             background-image: url(../../assets/transparent_back_lowOpacity.png);
             background-size: 100%;
             background-position: center;

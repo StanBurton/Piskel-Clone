@@ -1,18 +1,16 @@
 import style from "./index.scss";
-import canvasWheelEvent from "./events.js"
+import canvasWheelEvent from "./canvasWheelEvent.js"
 
 class Canvas {
-    constructor(state, setStage) {
+    constructor(state, setState, that) {
         this.state = state;
+        this.setState = setState;
+        this.that = that;
     }
     render() {
         const mainDiv = document.createElement("div");
         mainDiv.setAttribute("class", "canvasBlock");
-        mainDiv.onwheel = canvasWheelEvent(this.state);
-
-        let canvas = document.createElement("canvas");
-        canvas.setAttribute("id", "canvas");
-        mainDiv.appendChild(canvas);
+        mainDiv.onwheel = canvasWheelEvent(this.state, this.that);
 
         return mainDiv;
     }

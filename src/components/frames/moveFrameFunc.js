@@ -42,16 +42,19 @@ function moveFrameFunc(state, setState, that){
                 // console.log(+sibler.getAttribute("data-position"))
                 // console.log(framesArr.length)
                 if(+sibler.getAttribute("data-position") == framesArr.length){
-                    console.log(state.frames)
-                    console.log("last")
+                    // console.log(state.frames)
+                    // console.log("last")
                     let newArr = state.frames.splice(aim.getAttribute("data-position")-1, 1);
                     state.frames.splice(+sibler.getAttribute("data-position"), 0, newArr[0]);
+                    // console.log(state.frames.indexOf(newArr[0]))
                     that.setState(state);
                 }else{
-                    console.log(state.frames)
-                    console.log("first")
+                    // console.log(state.frames)
+                    // console.log("first")
                     let newArr = state.frames.splice(aim.getAttribute("data-position")-1, 1);
                     state.frames.splice(+sibler.getAttribute("data-position")-1, 0, newArr[0]);
+                    // state.currFrame = 
+                    // console.log(state.frames.indexOf(newArr[0]))
                     that.setState(state);
                 }
             }else{

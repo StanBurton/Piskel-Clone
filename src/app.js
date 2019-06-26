@@ -4,9 +4,9 @@ import Frames from "./components/frames";
 import Canvas from "./components/canvas";
 import Animation_layers from "./components/animation_layers";
 import Optional_panel from "./components/optionalPanel";
-import { timingSafeEqual } from "crypto";
-
-
+import canvasBuild from "./screens/canvas/canvasBuild.js";
+import previewCanvasBuild from "./screens/preview/previewCanvasBuild.js";
+import frameCanvasBuild from "./screens/frame/frameCanvasBuild.js"
 
 class APP {
     constructor() {
@@ -17,24 +17,25 @@ class APP {
                 fpsValue: 1
             },
             canvasSettings: {
-                width: "500px",
-                height: "500px",
+                // width: "500px",
+                // height: "500px",
                 rows: 32,
                 columns: 32,
-                scale: 1
+                scale: 0.8
             },
-            canvasEventFunc: function penTool() {
+            canvasEventFunc: function penTool(e) {
                 console.log("privet");
             },
-            count: 1,
+            currFrame: 0,
             frames: [
                 {
-                    id: ++this.count
-                },
+                    id: ++this.count,
+                    matrix: []
+                }
             ],
             spriteName: "value",
             colors: {
-                current: "red",
+                current: "#000000",
                 previous: "#ffffff"
             },
             penWidth: 2,
@@ -174,10 +175,21 @@ class APP {
             new Header(this.state, this.setState),
             new Tools(this.state, this.setState, this.that),
             new Frames(this.state, this.setState, this.that),
-            new Canvas(this.state, this.setState),
-            new Animation_layers(this.state, this.setState),
+            new Canvas(this.state, this.setState, this.that),
+            new Animation_layers(this.state, this.setState, this.that),
             new Optional_panel(this.state, this.setState)
         ];
+    }
+    
+    drawCanvas(){
+        new canvasBuild(this.state).draw();
+        new frameCanvasBuild(this.state).draw();
+        new previewCanvasBuild(this.state).draw();
+    }
+    setStateSilent(newState){
+        this.state = Object.assign(this.state, newState);
+        console.log("MAIN STATE Silent: ");
+        console.log(this.state);
     }
 
     setState(newState){
@@ -187,19 +199,19 @@ class APP {
         this.render();
     }
 
-    render(check) {
-        if(check){
+    render(first) {
+        if(first){
             return this.packaging();
         }else{
             document.querySelector(".main").remove();
             document.querySelector("body").appendChild(this.packaging());
-
+            this.drawCanvas();
         }
     }
 
     packaging() {
         let mainDiv = document.createElement("div");
-        mainDiv.className = "main";
+        mainDiv.setAttribute("class", "main");
         this.components.forEach(component => mainDiv.appendChild(component.render()));
         return mainDiv;
     }
