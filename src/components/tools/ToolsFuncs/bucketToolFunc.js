@@ -18,7 +18,8 @@ function bucketToolFunc(state, setState, that){
             function getColor(x, y){
                 return state.frames[state.currFrame].matrix[x][y]
             }
-            if ((x < 0) || (x > 31) || (y < 0) || (y > 31)) return;
+            // console.log(state.canvasSettings.rows-1)
+            if ((x < 0) || (x > state.canvasSettings.rows-1) || (y < 0) || (y > state.canvasSettings.columns-1)) return;
             if (getColor(x, y) != A) return;
             if (A == B) return
             state.frames[state.currFrame].matrix[x][y] = B;
@@ -28,8 +29,8 @@ function bucketToolFunc(state, setState, that){
             floodfill(x, y-1, A, B);
             floodfill(x, y+1, A, B);
             floodfill(x+1, y-1, A, B);
-            // floodfill(x+1, y, A, B);
-            // floodfill(x+1, y+1, A, B);
+            floodfill(x+1, y, A, B);
+            floodfill(x+1, y+1, A, B);
 
         }
         

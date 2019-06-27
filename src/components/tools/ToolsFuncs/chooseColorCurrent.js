@@ -13,7 +13,7 @@
 
 "use strict";
 
-if (!window.jscolor) { window.jscolor = (function () {
+function chooseColor() {
 
 
 var jsc = {
@@ -1853,4 +1853,6 @@ jsc.register();
 return jsc.jscolor;
 
 
-})(); }
+};
+
+export default chooseColor

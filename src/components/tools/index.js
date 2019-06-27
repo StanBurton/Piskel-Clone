@@ -1,6 +1,8 @@
 import style from "./index.scss";
-import Choosecolor from "./ToolsFuncs/chooseColor.js"
+import ChoosecolorCurrent from "./ToolsFuncs/chooseColorCurrent.js"
+import ChoosecolorPrevious from "./ToolsFuncs/chooseColorPrevious.js"
 import changeCurrColor from "./ToolsFuncs/changeCurrColor.js"
+import changePrevColor from "./ToolsFuncs/changePrevColor.js"
 import switchColorsFunc from "./ToolsFuncs/switchColorsFunc.js"
 import penToolFunc from "./toolsFuncs/penToolFunc.js"
 import sizeDivFunc from "./toolsFuncs/sizeDivFunc.js"
@@ -75,16 +77,21 @@ class Tools {
         divOne.style.backgroundColor = this.state.colors.current;
         let inputOne = document.createElement("input");
         inputOne.className = "jscolor";
-        console.log(Choosecolor)
+        ChoosecolorCurrent()
         inputOne.onchange = changeCurrColor(this.state, this.setState, this.that)
         divOne.appendChild(inputOne);
         divColor.appendChild(divOne);
 
         let divTwo = document.createElement("div");
         divTwo.setAttribute("class", "colorDiv");
-        divTwo.dataset.color = this.state.colors.previous;
         divTwo.dataset.type = "Secondary - RMB";
+        divTwo.dataset.color = this.state.colors.previous;
         divTwo.style.backgroundColor = this.state.colors.previous;
+        let inputTwo = document.createElement("input");
+        inputTwo.className = "jscolorPrev";
+        ChoosecolorPrevious()
+        inputTwo.onchange = changePrevColor(this.state, this.setState, this.that)
+        divTwo.appendChild(inputTwo);
         divColor.appendChild(divTwo);
 
         let divThree = document.createElement("div");

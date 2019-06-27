@@ -1,4 +1,4 @@
-function inputWidthAndHeightFunc(state){
+function inputWidthAndHeightFunc(state, setState, that){
     return function(e){
         state.canvasSettings.rows = +e.target.value;
         state.canvasSettings.columns = +e.target.value;
@@ -7,6 +7,7 @@ function inputWidthAndHeightFunc(state){
         }else {       
             document.querySelector("#inputWidth").value = e.target.value;
         }
+        
     }
 }
 export default inputWidthAndHeightFunc;

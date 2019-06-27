@@ -1,10 +1,14 @@
 import style from "./index.scss";
+import resizeButtonFunc from "./resizeButtonFunc.js"
 import menuOpenFunc from "./toogleEventfunc.js";
 import inputWidthAndHeightFunc from "./inputWidthAndHeightFunc.js"
 
 class Optional_panel {
-    constructor(state, setStage){
+    constructor(state, setState, that){
         this.state = state;
+        this.setState = setState;
+        this.that = that;
+
     }
     render() {
 
@@ -89,7 +93,7 @@ class Optional_panel {
         inputHeight.setAttribute("min", "0");
         inputHeight.setAttribute("max", "500");
         inputHeight.setAttribute("placeholder", this.state.canvasSettings.columns);
-        inputHeight.onchange = inputWidthAndHeightFunc(this.state);
+        inputHeight.onchange = inputWidthAndHeightFunc(this.state, this.setState, this.that);
         inputHeightBlock.appendChild(inputHeight);
 
         let pxSpanHeight = document.createElement("span");
@@ -104,9 +108,7 @@ class Optional_panel {
         let buttonResize = document.createElement("button");
         buttonResize.setAttribute("class", "buttonResize");
         buttonResize.textContent = "Resize";
-        buttonResize.onclick = function(){
-            alert("need rerender");
-        }
+        buttonResize.onclick = resizeButtonFunc(this.state, this.setState, this.that);
         buttonBlock.appendChild(buttonResize);
 
         ///SAVE

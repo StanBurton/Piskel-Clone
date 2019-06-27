@@ -9,7 +9,7 @@ function canvasHoverFunc(state){
         let pixelSize = Math.ceil(canvas.scrollWidth / state.canvasSettings.rows);
         let x = Math.floor(e.offsetX/(canvas.scrollWidth/state.canvasSettings.rows));
         let y = Math.floor(e.offsetY/(canvas.scrollWidth/state.canvasSettings.columns));
-        if ((x < 1) || (x > 31) || (y < 1) || (y > 31)) {
+        if ((x < 1) || (x > state.canvasSettings.rows-1) || (y < 1) || (y > state.canvasSettings.columns-1)) {
             ctx.clearRect(0, 0, canvas.scrollWidth, canvas.scrollHeight);   
             return
         }

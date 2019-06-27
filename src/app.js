@@ -36,7 +36,7 @@ class APP {
             spriteName: "value",
             colors: {
                 current: "#000000",
-                previous: "transparent"
+                previous: "#ffffff"
             },
             penWidth: 2,
             tools: [
@@ -177,7 +177,7 @@ class APP {
             new Frames(this.state, this.setState, this.that),
             new Canvas(this.state, this.setState, this.that),
             new Animation_layers(this.state, this.setState, this.that),
-            new Optional_panel(this.state, this.setState)
+            new Optional_panel(this.state, this.setState, this.that)
         ];
     }
     

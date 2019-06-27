@@ -17,7 +17,7 @@ function penToolFunc(state, setState, that){
         function msMove(e){
             let x = Math.floor(e.offsetX/(canvas.scrollWidth/state.canvasSettings.rows));
             let y = Math.floor(e.offsetY/(canvas.scrollWidth/state.canvasSettings.columns));
-
+            console.log(x, y)
             switch(penWidth){
                 case 1:
                 state.frames[state.currFrame].matrix[x][y] = curColor;

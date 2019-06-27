@@ -14,7 +14,7 @@ function canvasWheelSize(state,that) {
             state.canvasSettings.scale
         })`;
 
-        that.setStateSilent(state);
+        that.setState(state);
     };
 };
 
