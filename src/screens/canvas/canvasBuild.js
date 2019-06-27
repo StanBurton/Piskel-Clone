@@ -1,8 +1,10 @@
 // import style from "./index.scss"
-
+import canvasHoverfunc from "./canvasHoverfunc.js"
+import disableHover from "./disableHover.js"
 
 export default class canvasBuild {
     constructor(state){
+        this.state = state;
         this.canvasBlock =  document.querySelector(".canvasBlock");
         this.canvasSettings = state.canvasSettings;
         this.rows = this.canvasSettings.rows
@@ -10,9 +12,29 @@ export default class canvasBuild {
         this.onclickFunc = state.canvasEventFunc;
         this.currFrame = state.frames[state.currFrame].matrix;
         this.canvas = this.createCanvas();
+        this.canvasHover = this.createCanvasHover();
         this.pixelSize = Math.ceil(this.canvas.scrollWidth / this.rows);
         this.ctx = this.canvas.getContext("2d");       
     }   
+    createCanvasHover(){
+        let range = 39.3;
+        let canvasBlockWidth = this.canvasBlock.scrollWidth;
+        let canvasWidth = Math.floor(canvasBlockWidth/range) * this.rows;
+        let canvasHeight = Math.floor(canvasBlockWidth/range) * this.columns;
+        let canvas = document.createElement("canvas");   
+        canvas.setAttribute("id", "canvasHover");
+        canvas.setAttribute("width", canvasWidth);
+        canvas.setAttribute("height", canvasHeight);
+        canvas.style.cssText = `
+        position: absolute;
+        pointer-events: none;
+        left: ${Math.floor((canvasBlockWidth - canvasWidth)/2)}px;
+        top: -7%;
+        transform: scale(${this.canvasSettings.scale})
+        `;
+        this.canvasBlock.appendChild(canvas) 
+    }
+
     createCanvas(){
         let range = 39.3;
         let canvasBlockWidth = this.canvasBlock.scrollWidth;
@@ -20,7 +42,9 @@ export default class canvasBuild {
         let canvasHeight = Math.floor(canvasBlockWidth/range) * this.columns;
 
         let canvas = document.createElement("canvas");
-        canvas.onmousedown = this.onclickFunc;
+        canvas.addEventListener("mousedown", disableHover());
+        canvas.addEventListener("mousedown", this.onclickFunc);
+        
         
         canvas.setAttribute("id", "canvas");
         canvas.setAttribute("width", canvasWidth);
@@ -33,6 +57,7 @@ export default class canvasBuild {
         `;
         
         this.canvasBlock.appendChild(canvas)
+        canvas.addEventListener("mousemove", canvasHoverfunc(this.state));
 
         return canvas;
     }

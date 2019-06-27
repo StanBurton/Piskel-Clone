@@ -2,9 +2,11 @@
 
 function eraserToolFunc(state, setState, that){
     function eraserTool(e){
-        let canvas = document.getElementById("canvas");
+        let canvas = this;
+        let pixelSize = Math.ceil(canvas.scrollWidth / state.canvasSettings.rows);
         let penWidth = state.penWidth;
         let curColor = "transparent";
+        let ctx = this.getContext("2d");
 
         let firstTouch = msMove(e);
 
@@ -55,6 +57,16 @@ function eraserToolFunc(state, setState, that){
                 state.frames[state.currFrame].matrix[x-2][y-2] = curColor;
                 break;               
             }
+
+            ctx.clearRect(0, 0, canvas.scrollWidth, canvas.scrollHeight);   
+
+            for(let i = 0; i < state.frames[state.currFrame].matrix.length; i++){
+                for(let q = 0; q < state.frames[state.currFrame].matrix[i].length; q++){
+                    ctx.fillStyle = state.frames[state.currFrame].matrix[i][q]
+                    ctx.fillRect(i*pixelSize, q*pixelSize, pixelSize, pixelSize)
+                }
+            }
+
         }
 
         function msUp(){

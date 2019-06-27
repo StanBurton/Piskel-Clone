@@ -2,9 +2,11 @@
 
 function penToolFunc(state, setState, that){
     function penTool(e){
-        let canvas = document.getElementById("canvas");
+        let canvas = this;
+        let pixelSize = Math.ceil(canvas.scrollWidth / state.canvasSettings.rows);
         let penWidth = state.penWidth;
         let curColor = state.colors.current;
+        let ctx = this.getContext("2d");
 
         let firstTouch = msMove(e);
 
@@ -15,6 +17,7 @@ function penToolFunc(state, setState, that){
         function msMove(e){
             let x = Math.floor(e.offsetX/(canvas.scrollWidth/state.canvasSettings.rows));
             let y = Math.floor(e.offsetY/(canvas.scrollWidth/state.canvasSettings.columns));
+
             switch(penWidth){
                 case 1:
                 state.frames[state.currFrame].matrix[x][y] = curColor;
@@ -55,6 +58,17 @@ function penToolFunc(state, setState, that){
                 state.frames[state.currFrame].matrix[x-2][y-2] = curColor;
                 break;               
             }
+
+
+            ctx.clearRect(0, 0, canvas.scrollWidth, canvas.scrollHeight);   
+
+            for(let i = 0; i < state.frames[state.currFrame].matrix.length; i++){
+                for(let q = 0; q < state.frames[state.currFrame].matrix[i].length; q++){
+                    ctx.fillStyle = state.frames[state.currFrame].matrix[i][q]
+                    ctx.fillRect(i*pixelSize, q*pixelSize, pixelSize, pixelSize)
+                }
+            }
+
         }
 
         function msUp(){
