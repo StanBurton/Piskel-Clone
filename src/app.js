@@ -36,7 +36,7 @@ class APP {
             spriteName: "value",
             colors: {
                 current: "#000000",
-                previous: "#ffffff"
+                previous: "transparent"
             },
             penWidth: 2,
             tools: [

@@ -65,7 +65,7 @@ export default class canvasBuild {
     }
 
     draw(){
-        // setInterval(() => this.drawField(this.currFrame), this.fps)
+        // setTimeout(() => this.drawField(this.currFrame), 0)
         this.drawField(this.currFrame)
     }
 };

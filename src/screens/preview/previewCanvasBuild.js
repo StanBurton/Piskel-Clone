@@ -7,8 +7,7 @@ export default class previewCanvasBuild {
         this.canvasBlock = document.querySelector(".animation");
         this.canvasSettings = state.canvasSettings;
         this.rows = this.canvasSettings.rows
-        this.columns = this.canvasSettings.columns
-        this.currFrame = state.frames[state.currFrame].matrix;
+        this.columns = this.canvasSettings.columns;
         this.canvas = this.createCanvas();
         this.pixelSize = Math.ceil(this.canvas.scrollWidth / this.rows);
         this.ctx = this.canvas.getContext("2d");       
