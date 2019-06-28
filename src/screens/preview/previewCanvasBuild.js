@@ -29,7 +29,7 @@ export default class previewCanvasBuild {
         pointer-events: none;
         left: ${Math.floor((canvasBlockWidth - canvasWidth)/2)}px;
         top: 7%;`;
-        this.canvasBlock.appendChild(canvas)
+        this.canvasBlock.insertBefore(canvas, this.canvasBlock.children[0])
 
         return canvas;
     }

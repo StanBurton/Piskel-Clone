@@ -16,6 +16,25 @@
             background-image: url(../../assets/transparent_back_lowOpacity.png);
             background-size: 100%;
             background-position: center;
+            .fullscreen {
+                display: none;
+                position: absolute;
+                margin: 2% 0 0 89%;
+                i {
+                    color: #ffffff;
+                    font-size: 1.5vw;
+                    &:hover {
+                        color: #FFD700;
+                        cursor: pointer;
+                    }
+                }
+            }
+            &:hover .fullscreen {
+                display: flex;
+            }
+        }
+        .animation:fullscreen{
+            background-image: none;
         }
         .animation_settings {
             @include flexbox(row, flex-start, center);

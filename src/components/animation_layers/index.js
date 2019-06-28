@@ -1,5 +1,6 @@
 import style from "./index.scss";
 import fpsChangeFunc from "./fpsChangeFunc.js";
+import fullScreenFunc from "./fullScreenFunc.js";
 
 class Animation_layers {
     constructor(state, setStage, that) {
@@ -17,6 +18,12 @@ class Animation_layers {
         let animation = document.createElement("div");
         animation.setAttribute("class", "animation");
         divAnimation.appendChild(animation);
+
+        let divFullScreen = document.createElement("div");
+        divFullScreen.setAttribute("class", "fullscreen");
+        divFullScreen.innerHTML = `<i class="fas fa-compress"></i>`;
+        divFullScreen.onclick = fullScreenFunc(this.state, this.setState, this.that)
+        animation.appendChild(divFullScreen);
 
         let animationSettings = document.createElement("div");
         animationSettings.setAttribute("class", "animation_settings");
