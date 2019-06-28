@@ -38,6 +38,9 @@
             cursor: pointer;
             border: 3px solid lighten(#444444, $hoverLighthen);
         }
+        canvas {
+            pointer-events: none;
+        }
         .iconNum {
             display: flex;
             width: 30%;

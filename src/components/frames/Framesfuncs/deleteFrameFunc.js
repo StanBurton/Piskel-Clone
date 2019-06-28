@@ -8,7 +8,6 @@ function deleteFrameFunc(state, setState, that){
             state.currFrame -= 1;
         }
         that.setState(state);
-        console.log(state.currFrame)
     }
 }
 

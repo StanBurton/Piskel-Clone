@@ -1,9 +1,9 @@
 import style from "./index.scss";
-import frameClickFunc from "./frameClickFunc.js"
-import addFrameFunc from "./addFrameFunc.js"
-import deleteFrameFunc from "./deleteFrameFunc.js"
-import copyFrameFunc from "./copyFrameFunc.js"
-import moveFrameFunc from "./moveFrameFunc.js"
+import frameClickFunc from "./Framesfuncs/frameClickFunc.js"
+import addFrameFunc from "./Framesfuncs/addFrameFunc.js"
+import deleteFrameFunc from "./Framesfuncs/deleteFrameFunc.js"
+import copyFrameFunc from "./Framesfuncs/copyFrameFunc.js"
+import moveFrameFunc from "./Framesfuncs/moveFrameFunc.js"
 
 class Frames {
     constructor(state, setState, that) {

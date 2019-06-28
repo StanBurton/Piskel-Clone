@@ -23,7 +23,7 @@ class APP {
                 columns: 32,
                 scale: 0.8
             },
-            canvasEventFunc: function penTool(e) {
+            canvasEventFunc: function penTool() {
                 console.log("privet");
             },
             currFrame: 0,
@@ -170,7 +170,6 @@ class APP {
                 },
             ]
         };
-
         this.components = [
             new Header(this.state, this.setState),
             new Tools(this.state, this.setState, this.that),

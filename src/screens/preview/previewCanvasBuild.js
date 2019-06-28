@@ -46,12 +46,12 @@ export default class previewCanvasBuild {
 
     draw(){
         setInterval(() => {
-            if(this.count < this.frames.length-1){ 
+            if(this.count < this.frames.length){ 
                 this.drawField(this.frames[this.count].matrix)
                 this.count += 1;
             }else{
-                this.drawField(this.frames[this.count].matrix);
                 this.count = 0;
+                this.drawField(this.frames[this.count].matrix);      
             }
         }, 1000/this.fps);
     }

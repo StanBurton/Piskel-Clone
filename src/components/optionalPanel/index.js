@@ -1,7 +1,7 @@
 import style from "./index.scss";
-import resizeButtonFunc from "./resizeButtonFunc.js"
-import menuOpenFunc from "./toogleEventfunc.js";
-import inputWidthAndHeightFunc from "./inputWidthAndHeightFunc.js"
+import resizeButtonFunc from "./OptionalPanelFuncs/resizeButtonFunc.js"
+import menuOpenFunc from "./OptionalPanelFuncs/toogleEventfunc.js";
+import inputWidthAndHeightFunc from "./OptionalPanelFuncs/inputWidthAndHeightFunc.js"
 
 class Optional_panel {
     constructor(state, setState, that){

@@ -1,5 +1,5 @@
 import style from "./index.scss";
-import canvasWheelEvent from "./canvasWheelEvent.js"
+import canvasWheelEvent from "./Canvasfuncs/canvasWheelEvent.js"
 
 class Canvas {
     constructor(state, setState, that) {

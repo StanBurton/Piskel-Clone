@@ -16,7 +16,7 @@ function resizeButtonFunc(state, setState, that){
                 }
             }
         }
-        console.log(state.frames)
+
         that.setState(state)
     }
 }

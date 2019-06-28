@@ -18,7 +18,6 @@ function bucketToolFunc(state, setState, that){
             function getColor(x, y){
                 return state.frames[state.currFrame].matrix[x][y]
             }
-            // console.log(state.canvasSettings.rows-1)
             if ((x < 0) || (x > state.canvasSettings.rows-1) || (y < 0) || (y > state.canvasSettings.columns-1)) return;
             if (getColor(x, y) != A) return;
             if (A == B) return
