@@ -122,14 +122,15 @@
         padding: 4% 0;
         margin: 0 0 2% 0;
         i {
-            padding: 0 0 0 10%;
+            display: inline-block;
+            width: 50%;
+            padding: 0 0% 0 0%;
             color: #ffffff;
             font-size: 1.3vw;
-            text-align: right;
+            text-align: center;
         }
         span {
             text-align: left;
-            padding: 0 0 0 8%;
             color: #888888;
             font-size: 1vw;
         }

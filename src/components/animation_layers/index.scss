@@ -17,9 +17,6 @@
             background-image: url(../../assets/transparent_back_lowOpacity.png);
             background-size: 100%;
             background-position: center;
-            canvas {
-                width: 90%;
-            }
             .fullscreen {
                 display: none;
                 position: absolute;
@@ -38,12 +35,8 @@
                 display: flex;
             }
         }
-        .animation:fullscreen{
-            // background-image: none;
-        }
         .animation:fullscreen #canvasPreview{
             width: 50%;
-          
         }
         .animation:fullscreen .fullscreen{
             display: none;

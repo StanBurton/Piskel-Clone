@@ -1,7 +1,7 @@
 @import '../../styles/index';
 
 .header {
-    @include flexbox(row, space-between, center);
+    @include flexbox(row, flex-start, center);
     width: 100%;
     background-color: #2D2D2D;
     position: relative;
@@ -10,6 +10,7 @@
     a {
         color: #ffffff;
         padding: 0 0 0 2%;
+        margin: 0 39% 0 0;
         font-size: 2vw;
         font-weight: 900;
     }
@@ -17,12 +18,14 @@
         color: #888888;
         font-weight: 400;
         font-size: 2vw;
+        margin: 0 30.2% 0 0;
     }
     div {
         padding: 0 2% 0 0;
-        @include flexbox(row, space-between, center);
+        @include flexbox(row, flex-start, center);
 
         button {
+            white-space: nowrap;
             padding: 0.3vw 0.7vw;
             color: #000000;
             font-size: 1vw;

@@ -19,7 +19,6 @@ export default class previewCanvasBuild {
                 return 32
             }
         }
-
         let canvasBlockWidth = this.canvasBlock.offsetWidth;
         let canvasWidth = Math.floor(canvasBlockWidth/range()) * this.canvasSettings.rows;
         let canvasHeight = Math.floor(canvasBlockWidth/range()) * this.canvasSettings.columns;
@@ -29,7 +28,6 @@ export default class previewCanvasBuild {
         canvas.setAttribute("id", "canvasPreview");
         canvas.setAttribute("width", canvasWidth);
         canvas.setAttribute("height", canvasHeight);
-        console.log(document.querySelector(".animation").offsetWidth, canvasWidth)
         canvas.style.cssText = `
         position: absolute;
         pointer-events: none;`;
