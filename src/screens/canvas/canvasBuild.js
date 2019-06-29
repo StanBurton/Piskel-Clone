@@ -28,8 +28,6 @@ export default class canvasBuild {
         canvas.style.cssText = `
         position: absolute;
         pointer-events: none;
-        left: ${Math.floor((canvasBlockWidth - canvasWidth)/2)}px;
-        top: -7%;
         transform: scale(${this.canvasSettings.scale})
         `;
         this.canvasBlock.appendChild(canvas) 
@@ -40,7 +38,7 @@ export default class canvasBuild {
         let canvasBlockWidth = this.canvasBlock.scrollWidth;
         let canvasWidth = Math.floor(canvasBlockWidth/range) * this.rows;
         let canvasHeight = Math.floor(canvasBlockWidth/range) * this.columns;
-
+        console.log("CHANGE")
         let canvas = document.createElement("canvas");
         canvas.addEventListener("mousedown", disableHover());
         canvas.addEventListener("mousedown", this.onclickFunc);
@@ -51,8 +49,7 @@ export default class canvasBuild {
         canvas.setAttribute("height", canvasHeight);
         canvas.style.cssText = `
         position: absolute;
-        left: ${Math.floor((canvasBlockWidth - canvasWidth)/2)}px;
-        transform: scale(${this.canvasSettings.scale})
+        transform: scale(${this.canvasSettings.scale});
         `;
         
         this.canvasBlock.appendChild(canvas)

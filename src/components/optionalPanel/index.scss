@@ -86,6 +86,7 @@
             border-top-left-radius: 0.5vw;
             border-bottom-left-radius: 0.5vw;
             background-color: lighten(#444444, $hoverLighthen);
+
             .menuPreferences {
                 width: 100%;
                 height: 100%;
@@ -96,14 +97,6 @@
                 @extend .menuPreferences;
                 @include flexbox(column, flex-start, center);
                 display: none;
-                .h3Resize {
-                    width: 100%;
-                    font-weight: 700;
-                    text-align: left;
-                    color: #FFD700;
-                    border-bottom: 0.1vw solid  #CCCCCC;
-
-                }
                 .inputWidthBlock {
                     @include flexbox(row, flex-start, center);
                     width: 100%;
@@ -157,13 +150,37 @@
             }
             .menuExport {
                 @extend .menuPreferences;
-                background-color: yellow;
+                flex-wrap: wrap;
+                .exportButton {
+                    width: 30%;
+                    height: 10%;
+                    font-size: 0.9vw;
+                    font-weight: 700;
+                    padding: 2% 0;
+                    color: #000000;
+                    background-color: #FFD700;
+                    border-radius: 0.4vw;
+                    &:hover {
+                        cursor: pointer;
+                        background-color: lighten(#FFD700, $hoverLighthen);
+                        transition: 0.2s background-color ease-in-out;
+                    }
+                }
                 display: none;
             }
             .menuImport {
                 @extend .menuPreferences;
                 background-color: blue;
                 display: none;
+            }
+            .menusTitles {
+                width: 100%;
+                height: 6%;
+                font-weight: 700;
+                text-align: left;
+                color: #FFD700;
+                border-bottom: 0.1vw solid  #CCCCCC;
+
             }
             .menu_active {
                 @extend .menuPreferences;

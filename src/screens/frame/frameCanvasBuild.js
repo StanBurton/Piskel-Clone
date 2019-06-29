@@ -16,7 +16,7 @@ export default class frameCanvasBuild {
         let canvasArr = []
 
         for(let i = 0; i < this.canvasBlock.length; i++){
-            let range = 29;
+            let range = 40;
             let canvasBlockWidth = this.canvasBlock[i].scrollWidth;
             let canvasWidth = Math.floor(canvasBlockWidth/range) * this.rows;
             let canvasHeight = Math.floor(canvasBlockWidth/range) * this.columns;
@@ -26,10 +26,7 @@ export default class frameCanvasBuild {
             canvas.setAttribute("height", canvasHeight);
             canvas.style.cssText = `
             position: absolute;
-            z-index: 0;
-            left: ${Math.floor((canvasBlockWidth - canvasWidth)/2)}px;
-            top: 12%;
-            `;
+            z-index: 0;`;
             canvasArr.push(canvas);
             this.canvasBlock[i].insertBefore(canvas, this.canvasBlock[i].children[0])
         }

@@ -20,6 +20,7 @@
         background-color: rgba(50, 50, 50, 0.4);
     }
     .frame {
+        @include flexbox(center, center, center);
         width: 95%;
         box-sizing: border-box;
         height: 7.154vw;
@@ -40,11 +41,13 @@
         }
         canvas {
             pointer-events: none;
+            width: 60%
         }
         .iconNum {
             display: flex;
             width: 30%;
             line-height: 100%;
+            @include iconPosition (0%, 0%);
             position: absolute;
             text-align: center;
             background: lighten(#8E7A0E, $hoverLighthen);

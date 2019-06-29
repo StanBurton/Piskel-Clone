@@ -9,6 +9,7 @@
         @include flexbox(column, flex-start, center);
         width: 100%;
         .animation {
+            @include flexbox(row, center,center);
             width: 100%;
             height: 15vw;
             position: relative;
@@ -16,10 +17,14 @@
             background-image: url(../../assets/transparent_back_lowOpacity.png);
             background-size: 100%;
             background-position: center;
+            canvas {
+                width: 90%;
+            }
             .fullscreen {
                 display: none;
                 position: absolute;
-                margin: 2% 0 0 89%;
+                left: 89%;
+                top: 2%;
                 i {
                     color: #ffffff;
                     font-size: 1.5vw;
@@ -38,7 +43,7 @@
         }
         .animation:fullscreen #canvasPreview{
             width: 50%;
-            margin: 0% 0 0 41%
+          
         }
         .animation:fullscreen .fullscreen{
             display: none;

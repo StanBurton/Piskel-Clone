@@ -16,164 +16,6 @@ class APP {
         this.that = this;
         this.count = this.getCount();
         this.state = this.getState();
-        // this.state = {
-        //     animationSettings: {
-        //         fpsValue: 1
-        //     },
-        //     canvasSettings: {
-        //         // width: "500px",
-        //         // height: "500px",
-        //         rows: 32,
-        //         columns: 32,
-        //         scale: 0.8
-        //     },
-        //     canvasEventFunc: function penTool() {
-        //         console.log("privet");
-        //     },
-        //     currFrame: 0,
-        //     frames: [
-        //         {
-        //             id: ++this.count,
-        //             matrix: []
-        //         }
-        //     ],
-        //     spriteName: "New sprite *",
-        //     colors: {
-        //         current: "#000000",
-        //         previous: "#ffffff"
-        //     },
-        //     penWidth: 2,
-        //     tools: [
-        //         {
-        //             name: "Toogle onion skin",
-        //             slug: "toogleOnionToolFunc",
-        //             shortCut: {
-        //                 key: 23,
-        //                 hint: "Alt + 6"
-        //             }  
-        //         },
-        //         {
-        //             name: "Pen Tool",
-        //             slug: "penTool",
-        //             shortCut: {
-        //                 key: 23,
-        //                 hint: "P"
-        //             }  
-        //         },
-        //         {
-        //             name: "Vertical Mirror Pen",
-        //             slug: "mirrorPenToolFunc",
-        //             shortCut: {
-        //                 key: 24,
-        //                 hint: "H"
-        //             } 
-        //         },
-        //         {
-        //             name: "Paint Bucket Tool",
-        //             slug: "bucketTool",
-        //             shortCut: {
-        //                 key: 25,
-        //                 hint: "J"
-        //             } 
-        //         },
-        //         {
-        //             name: "Paint all pixels of the same color",
-        //             slug: "bucketSameColorToolFunc",
-        //             shortCut: {
-        //                 key: 26,
-        //                 hint: "K"
-        //             } 
-        //         },
-        //         {
-        //             name: "Eraser Tool",
-        //             slug: "eraserTool",
-        //             shortCut: {
-        //                 key: 27,
-        //                 hint: "L"
-        //             } 
-        //         },
-        //         {
-        //             name: "Stroke Tool",
-        //             slug: "strokeToolFunc",
-        //             shortCut: {
-        //                 key: 28,
-        //                 hint: "Y"
-        //             } 
-        //         },
-        //         {
-        //             name: "Rectangle Tool",
-        //             slug: "rectangleToolFunc",
-        //             shortCut: {
-        //                 key: 29,
-        //                 hint: "T"
-        //             } 
-        //         },
-        //         {
-        //             name: "Circle Tool",
-        //             slug: "circleToolFunc",
-        //             shortCut: {
-        //                 key: 30,
-        //                 hint: "R"
-        //             } 
-        //         },
-        //         {
-        //             name: "Move Tool",
-        //             slug: "moveToolFunc",
-        //             shortCut: {
-        //                 key: 31,
-        //                 hint: "Y"
-        //             } 
-        //         },
-        //         {
-        //             name: "Shape Selection",
-        //             slug: "shapeSelectToolFunc",
-        //             shortCut: {
-        //                 key: 33,
-        //                 hint: "U"
-        //             } 
-        //         },
-        //         {
-        //             name: "Rectangle Selection",
-        //             slug: "rectangleSelectToolFunc",
-        //             shortCut: {
-        //                 key: 34,
-        //                 hint: "I"
-        //             } 
-        //         },
-        //         {
-        //             name: "Lasso Selection",
-        //             slug: "lassoSelectToolFunc",
-        //             shortCut: {
-        //                 key: 34,
-        //                 hint: "O"
-        //             } 
-        //         },
-        //         {
-        //             name: "Lighten",
-        //             slug: "lightenToolFunc",
-        //             shortCut: {
-        //                 key: 35,
-        //                 hint: "Q"
-        //             } 
-        //         },
-        //         {
-        //             name: "Dithering Tool",
-        //             slug: "ditheringToolFunc",
-        //             shortCut: {
-        //                 key: 37,
-        //                 hint: "W"
-        //             } 
-        //         },
-        //         {
-        //             name: "Color Picker",
-        //             slug: "colorPickerToolFunc",
-        //             shortCut: {
-        //                 key: 38,
-        //                 hint: "C"
-        //             } 
-        //         },
-        //     ]
-        // };
         this.components = [
             new Header(this.state, this.setState),
             new Tools(this.state, this.setState, this.that),
@@ -208,14 +50,14 @@ class APP {
                     fpsValue: 1
                 },
                 canvasSettings: {
-                    // width: "500px",
-                    // height: "500px",
+                    top: "-10%",
+                    left: "10%",
                     rows: 32,
                     columns: 32,
                     scale: 0.8
                 },
                 canvasEventFunc: function penTool() {
-                    console.log("privet");
+                    alert("Choose Tool!")
                 },
                 currFrame: 0,
                 frames: [

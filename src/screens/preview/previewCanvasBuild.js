@@ -32,9 +32,7 @@ export default class previewCanvasBuild {
         console.log(document.querySelector(".animation").offsetWidth, canvasWidth)
         canvas.style.cssText = `
         position: absolute;
-        pointer-events: none;
-        left: ${Math.floor((canvasBlockWidth - canvasWidth)/2)}px;
-        top: ${Math.floor(canvasWidth/20)}px;`;
+        pointer-events: none;`;
         this.canvasBlock.insertBefore(canvas, this.canvasBlock.children[0])
 
         return canvas;

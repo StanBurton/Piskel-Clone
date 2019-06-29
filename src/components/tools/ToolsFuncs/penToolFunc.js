@@ -17,7 +17,7 @@ function penToolFunc(state, setState, that){
         function msMove(e){
             let x = Math.floor(e.offsetX/(canvas.scrollWidth/state.canvasSettings.rows));
             let y = Math.floor(e.offsetY/(canvas.scrollWidth/state.canvasSettings.columns));
-            if ((x < 1) || (x > state.canvasSettings.rows-1) || (y < 1) || (y > state.canvasSettings.columns-1)) {
+            if ((x < 0) || (x > state.canvasSettings.rows-1) || (y < 0) || (y > state.canvasSettings.columns-1)) {
                 // ctx.clearRect(0, 0, canvas.scrollWidth, canvas.scrollHeight);   
                 return
             }

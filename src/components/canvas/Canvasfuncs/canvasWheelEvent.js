@@ -1,4 +1,4 @@
-function canvasWheelSize(state,that) {
+function canvasWheelSize(state, that) {
     return function(e) {
         let delta = e.deltaY;
         if (delta > 0) {
@@ -16,6 +16,6 @@ function canvasWheelSize(state,that) {
 
         that.setState(state);
     };
-};
+}
 
 export default canvasWheelSize;

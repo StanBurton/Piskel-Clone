@@ -1,7 +1,8 @@
 import style from "./index.scss";
-import resizeButtonFunc from "./OptionalPanelFuncs/resizeButtonFunc.js"
+import resizeButtonFunc from "./OptionalPanelFuncs/resizeButtonFunc.js";
 import menuOpenFunc from "./OptionalPanelFuncs/toogleEventfunc.js";
-import inputWidthAndHeightFunc from "./OptionalPanelFuncs/inputWidthAndHeightFunc.js"
+import inputWidthAndHeightFunc from "./OptionalPanelFuncs/inputWidthAndHeightFunc.js";
+import exportButtonFunc from "./OptionalPanelFuncs/exportButtonFunc.js";
 
 class Optional_panel {
     constructor(state, setState, that){
@@ -51,7 +52,7 @@ class Optional_panel {
         menusCentered.appendChild(menuResize);
 
         let h3Resize = document.createElement("h3");
-        h3Resize.setAttribute("class", "h3Resize");
+        h3Resize.setAttribute("class", "menusTitles h3Resize");
         h3Resize.textContent = "RESIZE";
         menuResize.appendChild(h3Resize);
 
@@ -119,6 +120,18 @@ class Optional_panel {
         let menuExport = document.createElement("div");
         menuExport.setAttribute("class", `menu${arrSettings[3]}`);
         menusCentered.appendChild(menuExport);
+
+        let h3Export = document.createElement("h3");
+        h3Export.setAttribute("class", "menusTitles h3Export");
+        h3Export.textContent = "EXPORT";
+        menuExport.appendChild(h3Export);
+
+        let buttonExport = document.createElement("button");
+        buttonExport.setAttribute("class", "exportButton");
+        buttonExport.textContent = "Export";
+        buttonExport.onclick = exportButtonFunc(this.state, this.setState, this.that);
+        menuExport.appendChild(buttonExport)
+
         ///IMPORT
         let menuImport = document.createElement("div");
         menuImport.setAttribute("class", `menu${arrSettings[4]}`);
