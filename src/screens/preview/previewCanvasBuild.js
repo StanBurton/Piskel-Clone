@@ -21,7 +21,7 @@ export default class previewCanvasBuild {
 
         let canvas = document.createElement("canvas");
    
-     
+        canvas.setAttribute("id", "canvasPreview");
         canvas.setAttribute("width", canvasWidth);
         canvas.setAttribute("height", canvasHeight);
         canvas.style.cssText = `
@@ -40,6 +40,7 @@ export default class previewCanvasBuild {
                 for(let q = 0; q < currFrame[i].length; q++){
                         this.ctx.fillStyle = currFrame[i][q]
                         this.ctx.fillRect(i*this.pixelSize, q*this.pixelSize, this.pixelSize, this.pixelSize)
+                        
                 }
             }
     }

@@ -1,5 +1,3 @@
-
-
 function bucketToolFunc(state, setState, that){
     function bucketTool(e){
         let canvas = document.getElementById("canvas");

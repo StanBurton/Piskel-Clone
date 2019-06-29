@@ -34,7 +34,14 @@
             }
         }
         .animation:fullscreen{
-            background-image: none;
+            // background-image: none;
+        }
+        .animation:fullscreen #canvasPreview{
+            width: 50%;
+            margin: 0% 0 0 20%
+        }
+        .animation:fullscreen .fullscreen{
+            display: none;
         }
         .animation_settings {
             @include flexbox(row, flex-start, center);

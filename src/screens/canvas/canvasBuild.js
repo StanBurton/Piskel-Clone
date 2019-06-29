@@ -83,7 +83,6 @@ export default class canvasBuild {
             
                         this.ctx.fillStyle = currFrame[i][q]
                         this.ctx.fillRect(i*this.pixelSize, q*this.pixelSize, this.pixelSize, this.pixelSize)
-
                 }
             }
         }

@@ -7,6 +7,6 @@ let mainApp = new App();
 body.appendChild(mainApp.render(1));
 mainApp.drawCanvas()
 
-// window.onresize = function(){
-//     mainApp.render()
-// }
+window.onresize = function(){
+    mainApp.render()
+}
