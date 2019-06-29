@@ -12,6 +12,7 @@ import frameCanvasBuild from "./screens/frame/frameCanvasBuild.js"
 
 class APP {
     constructor() {
+        this.fullScreen = false;
         this.that = this;
         this.count = this.getCount();
         this.state = this.getState();
@@ -365,7 +366,7 @@ class APP {
     drawCanvas(){
         new canvasBuild(this.state).draw();
         new frameCanvasBuild(this.state).draw();
-        new previewCanvasBuild(this.state).draw();
+        new previewCanvasBuild(this.state, this.that).draw();
     }
     setStateSilent(newState){
         this.state = Object.assign(this.state, newState);
@@ -407,7 +408,7 @@ class APP {
 
     spriteName(){
         if(this.state.spriteName == null){
-            this.state.spriteName = prompt("Enter sprite name", "Sprite name *");
+            this.state.spriteName = prompt("Enter sprite name", "New Sprite *");
         }else{
             return
         }

@@ -17,7 +17,7 @@ class Header {
         mainDiv.appendChild(a);
 
         let projectName = document.createElement("h2");
-        projectName.textContent = this.state.spriteName;
+        projectName.textContent = this.state.spriteName || "New Sprite *";
         mainDiv.appendChild(projectName);
 
         let divButtons = document.createElement("div");

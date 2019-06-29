@@ -7,6 +7,18 @@ let mainApp = new App();
 body.appendChild(mainApp.render(1));
 mainApp.drawCanvas()
 
+document.addEventListener("fullscreenchange", function() {
+    if(!document.fullscreenElement){
+        mainApp.fullScreen = false
+        mainApp.render()
+    }
+  });
+
 window.onresize = function(){
-    mainApp.render()
+        if(mainApp.fullScreen){
+            return
+        }else{
+            mainApp.render()
+        }
 }
+

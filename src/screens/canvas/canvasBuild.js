@@ -52,7 +52,6 @@ export default class canvasBuild {
         canvas.style.cssText = `
         position: absolute;
         left: ${Math.floor((canvasBlockWidth - canvasWidth)/2)}px;
-        top: -7%;
         transform: scale(${this.canvasSettings.scale})
         `;
         
