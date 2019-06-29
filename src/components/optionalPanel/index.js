@@ -5,15 +5,19 @@ import inputWidthAndHeightFunc from "./OptionalPanelFuncs/inputWidthAndHeightFun
 import exportButtonFunc from "./OptionalPanelFuncs/exportButtonFunc.js";
 
 class Optional_panel {
-    constructor(state, setState, that){
+    constructor(state, setState, that) {
         this.state = state;
         this.setState = setState;
         this.that = that;
-
     }
     render() {
-
-        const arrSettings = ["Preferences", "Resize", "Save", "Export", "Import"];
+        const arrSettings = [
+            "Preferences",
+            "Resize",
+            "Save",
+            "Export",
+            "Import"
+        ];
 
         const mainDiv = document.createElement("div");
         mainDiv.setAttribute("class", "optional_panel");
@@ -26,7 +30,7 @@ class Optional_panel {
         divToogleCentered.setAttribute("class", "divToogleCentered");
         divToogle.appendChild(divToogleCentered);
 
-        for(let i = 0; i < arrSettings.length; i++){
+        for (let i = 0; i < arrSettings.length; i++) {
             let toogle = document.createElement("div");
             toogle.setAttribute("class", "toogle");
             toogle.dataset.description = arrSettings[i];
@@ -93,8 +97,15 @@ class Optional_panel {
         inputHeight.setAttribute("type", "number");
         inputHeight.setAttribute("min", "0");
         inputHeight.setAttribute("max", "500");
-        inputHeight.setAttribute("placeholder", this.state.canvasSettings.columns);
-        inputHeight.onchange = inputWidthAndHeightFunc(this.state, this.setState, this.that);
+        inputHeight.setAttribute(
+            "placeholder",
+            this.state.canvasSettings.columns
+        );
+        inputHeight.onchange = inputWidthAndHeightFunc(
+            this.state,
+            this.setState,
+            this.that
+        );
         inputHeightBlock.appendChild(inputHeight);
 
         let pxSpanHeight = document.createElement("span");
@@ -109,7 +120,11 @@ class Optional_panel {
         let buttonResize = document.createElement("button");
         buttonResize.setAttribute("class", "buttonResize");
         buttonResize.textContent = "Resize";
-        buttonResize.onclick = resizeButtonFunc(this.state, this.setState, this.that);
+        buttonResize.onclick = resizeButtonFunc(
+            this.state,
+            this.setState,
+            this.that
+        );
         buttonBlock.appendChild(buttonResize);
 
         ///SAVE
@@ -129,15 +144,19 @@ class Optional_panel {
         let buttonExport = document.createElement("button");
         buttonExport.setAttribute("class", "exportButton");
         buttonExport.textContent = "Export";
-        buttonExport.onclick = exportButtonFunc(this.state, this.setState, this.that);
-        menuExport.appendChild(buttonExport)
+        buttonExport.onclick = exportButtonFunc(
+            this.state,
+            this.setState,
+            this.that
+        );
+        menuExport.appendChild(buttonExport);
 
         ///IMPORT
         let menuImport = document.createElement("div");
         menuImport.setAttribute("class", `menu${arrSettings[4]}`);
         menusCentered.appendChild(menuImport);
 
-        return mainDiv
+        return mainDiv;
     }
 }
 

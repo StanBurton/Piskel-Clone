@@ -1,7 +1,7 @@
 import style from "./index.scss";
 
 class Header {
-    constructor(state, setState) {
+    constructor(state) {
         this.state = state;
     }
 

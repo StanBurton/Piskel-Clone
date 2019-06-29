@@ -620,8 +620,8 @@ var jsc = {
 		case 'pad':
 			// if the slider is at the bottom, move it up
 			switch (jsc.getSliderComponent(thisObj)) {
-			case 's': if (thisObj.hsv[1] === 0) { thisObj.fromHSV(null, 100, null); }; break;
-			case 'v': if (thisObj.hsv[2] === 0) { thisObj.fromHSV(null, null, 100); }; break;
+			case 's': if (thisObj.hsv[1] === 0) { thisObj.fromHSV(null, 100, null); } break;
+			case 'v': if (thisObj.hsv[2] === 0) { thisObj.fromHSV(null, null, 100); } break;
 			}
 			jsc.setPad(thisObj, e, 0, 0);
 			break;
@@ -1853,6 +1853,6 @@ jsc.register();
 return jsc.jscolor;
 
 
-};
+}
 
 export default chooseColor

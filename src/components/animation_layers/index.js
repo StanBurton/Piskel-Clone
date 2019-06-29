@@ -22,7 +22,11 @@ class Animation_layers {
         let divFullScreen = document.createElement("div");
         divFullScreen.setAttribute("class", "fullscreen");
         divFullScreen.innerHTML = `<i class="fas fa-compress"></i>`;
-        divFullScreen.onclick = fullScreenFunc(this.state, this.setState, this.that)
+        divFullScreen.onclick = fullScreenFunc(
+            this.state,
+            this.setState,
+            this.that
+        );
         animation.appendChild(divFullScreen);
 
         let animationSettings = document.createElement("div");
@@ -30,7 +34,9 @@ class Animation_layers {
 
         let layersButton = document.createElement("div");
         layersButton.innerHTML = `<i class="fas fa-layer-group"></i>`;
-        layersButton.dataset.description = `${this.state.tools[0].name} (${this.state.tools[0].shortCut.hint})`;
+        layersButton.dataset.description = `${this.state.tools[0].name} (${
+            this.state.tools[0].shortCut.hint
+        })`;
         layersButton.setAttribute("class", "layersButton");
         animationSettings.appendChild(layersButton);
 
@@ -44,8 +50,11 @@ class Animation_layers {
         fpsRange.setAttribute("type", "range");
         fpsRange.setAttribute("min", "1");
         fpsRange.setAttribute("max", "24");
-        fpsRange.setAttribute("value", `${+this.state.animationSettings.fpsValue}`);
-        fpsRange.onchange = fpsChangeFunc(this.state, this.setStage, this.that)
+        fpsRange.setAttribute(
+            "value",
+            `${+this.state.animationSettings.fpsValue}`
+        );
+        fpsRange.onchange = fpsChangeFunc(this.state, this.setStage, this.that);
         animationSettings.appendChild(fpsRange);
 
         divAnimation.appendChild(animationSettings);

@@ -1,9 +1,9 @@
 import style from "./index.scss";
-import frameClickFunc from "./Framesfuncs/frameClickFunc.js"
-import addFrameFunc from "./Framesfuncs/addFrameFunc.js"
-import deleteFrameFunc from "./Framesfuncs/deleteFrameFunc.js"
-import copyFrameFunc from "./Framesfuncs/copyFrameFunc.js"
-import moveFrameFunc from "./Framesfuncs/moveFrameFunc.js"
+import frameClickFunc from "./Framesfuncs/frameClickFunc.js";
+import addFrameFunc from "./Framesfuncs/addFrameFunc.js";
+import deleteFrameFunc from "./Framesfuncs/deleteFrameFunc.js";
+import copyFrameFunc from "./Framesfuncs/copyFrameFunc.js";
+import moveFrameFunc from "./Framesfuncs/moveFrameFunc.js";
 
 class Frames {
     constructor(state, setState, that) {
@@ -19,13 +19,17 @@ class Frames {
             frame.dataset.id = this.state.frames[i].id;
             frame.dataset.position = i + 1;
             frame.setAttribute("class", "frame");
-            if(i == this.state.currFrame){
+            if (i == this.state.currFrame) {
                 frame.setAttribute("class", "frame frame_active");
             }
-            frame.onclick = frameClickFunc(this.state, this.setState, this.that)
-            ///need to add canvas here
+            frame.onclick = frameClickFunc(
+                this.state,
+                this.setState,
+                this.that
+            );
+
             let iconNum = document.createElement("div");
-            iconNum.innerHTML = `<i>${frame.getAttribute("data-position")}</i>` ;
+            iconNum.innerHTML = `<i>${frame.getAttribute("data-position")}</i>`;
             iconNum.setAttribute("class", "iconNum");
             frame.appendChild(iconNum);
 
@@ -33,7 +37,11 @@ class Frames {
             iconCopy.innerHTML = `<i class="far fa-copy"></i>`;
             iconCopy.setAttribute("class", "iconCopy");
             iconCopy.dataset.info = "Copy this frame";
-            iconCopy.onclick = copyFrameFunc(this.state, this.setState, this.that);
+            iconCopy.onclick = copyFrameFunc(
+                this.state,
+                this.setState,
+                this.that
+            );
             frame.appendChild(iconCopy);
 
             if (this.state.frames.length > 1) {
@@ -41,14 +49,22 @@ class Frames {
                 iconDel.innerHTML = `<i class="far fa-trash-alt"></i>`;
                 iconDel.setAttribute("class", "iconDel");
                 iconDel.dataset.info = "Delete this frame";
-                iconDel.onclick = deleteFrameFunc(this.state, this.setState, this.that);
+                iconDel.onclick = deleteFrameFunc(
+                    this.state,
+                    this.setState,
+                    this.that
+                );
                 frame.appendChild(iconDel);
 
                 let iconMove = document.createElement("div");
                 iconMove.innerHTML = `<i class="fas fa-arrows-alt"></i>`;
                 iconMove.setAttribute("class", "iconMove");
                 iconMove.dataset.info = "Move this frame";
-                iconMove.onmousedown = moveFrameFunc(this.state, this.setState, this.that);
+                iconMove.onmousedown = moveFrameFunc(
+                    this.state,
+                    this.setState,
+                    this.that
+                );
                 frame.appendChild(iconMove);
             }
 
@@ -58,14 +74,17 @@ class Frames {
     }
 
     render() {
-
         const mainDiv = document.createElement("div");
         mainDiv.className = "frames";
-    
+
         this.createFrames().forEach(frame => mainDiv.appendChild(frame));
-    
+
         let addFrameButton = document.createElement("button");
-        addFrameButton.onclick = addFrameFunc(this.state, this.setState, this.that);
+        addFrameButton.onclick = addFrameFunc(
+            this.state,
+            this.setState,
+            this.that
+        );
         let plus = document.createElement("i");
         plus.setAttribute("class", "fas fa-plus");
         addFrameButton.appendChild(plus);
@@ -74,7 +93,7 @@ class Frames {
         span.textContent = "Add new frame";
         addFrameButton.appendChild(span);
         mainDiv.appendChild(addFrameButton);
-    
+
         return mainDiv;
     }
 }

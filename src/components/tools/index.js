@@ -1,63 +1,66 @@
 import style from "./index.scss";
-import ChoosecolorCurrent from "./ToolsFuncs/chooseColorCurrent.js"
-import ChoosecolorPrevious from "./ToolsFuncs/chooseColorPrevious.js"
-import changeCurrColor from "./ToolsFuncs/changeCurrColor.js"
-import changePrevColor from "./ToolsFuncs/changePrevColor.js"
-import switchColorsFunc from "./ToolsFuncs/switchColorsFunc.js"
-import penToolFunc from "./toolsFuncs/penToolFunc.js"
-import sizeDivFunc from "./toolsFuncs/sizeDivFunc.js"
-import bucketToolFunc from "./toolsFuncs/bucketToolFunc.js"
-import eraserToolFunc from "./toolsFuncs/eraserToolFunc.js"
-
+import ChoosecolorCurrent from "./ToolsFuncs/chooseColorCurrent.js";
+import ChoosecolorPrevious from "./ToolsFuncs/chooseColorPrevious.js";
+import changeCurrColor from "./ToolsFuncs/changeCurrColor.js";
+import changePrevColor from "./ToolsFuncs/changePrevColor.js";
+import switchColorsFunc from "./ToolsFuncs/switchColorsFunc.js";
+import penToolFunc from "./toolsFuncs/penToolFunc.js";
+import sizeDivFunc from "./toolsFuncs/sizeDivFunc.js";
+import bucketToolFunc from "./toolsFuncs/bucketToolFunc.js";
+import eraserToolFunc from "./toolsFuncs/eraserToolFunc.js";
 
 class Tools {
     constructor(state, setState, that) {
         this.state = state;
         this.setState = setState;
-        this.that = that,
-        this.toolsFuncs = {
-            "sizeDiv": sizeDivFunc(this.state, this.setState, this.that),
-            "penTool": penToolFunc(this.state, this.setState, this.that),
-            "bucketTool": bucketToolFunc(this.state, this.setState, this.that),
-            "eraserTool": eraserToolFunc(this.state, this.setState, this.that)
-        }
+        (this.that = that),
+            (this.toolsFuncs = {
+                sizeDiv: sizeDivFunc(this.state, this.setState, this.that),
+                penTool: penToolFunc(this.state, this.setState, this.that),
+                bucketTool: bucketToolFunc(
+                    this.state,
+                    this.setState,
+                    this.that
+                ),
+                eraserTool: eraserToolFunc(this.state, this.setState, this.that)
+            });
     }
 
     liGenerate() {
         let arr = [];
         for (let i = 1; i < this.state.tools.length; i++) {
             let li = document.createElement("li");
-            if(this.state.canvasEventFunc.name == this.state.tools[i].slug){
+            if (this.state.canvasEventFunc.name == this.state.tools[i].slug) {
                 li.setAttribute("class", "ul_item_active");
-            }else {
+            } else {
                 li.setAttribute("class", "ul_item");
             }
-            li.dataset.description = `${this.state.tools[i].name} (${this.state.tools[i].shortCut.hint || "none"})`;
+            li.dataset.description = `${this.state.tools[i].name} (${this.state
+                .tools[i].shortCut.hint || "none"})`;
             li.onclick = this.toolsFuncs[this.state.tools[i].slug] || null;
             arr.push(li);
         }
         return arr;
     }
 
-    penWidthGenerate(){
+    penWidthGenerate() {
         let divForSize = document.createElement("div");
         divForSize.setAttribute("class", "pen_width");
         for (let i = 1; i < 5; i++) {
             let sizeDiv = document.createElement("div");
             sizeDiv.dataset.penWidth = i;
-            if(this.state.penWidth === i){
+            if (this.state.penWidth === i) {
                 sizeDiv.setAttribute("class", "sizeDiv_active");
-            }else{
-                sizeDiv.setAttribute("class", "sizeDiv")
+            } else {
+                sizeDiv.setAttribute("class", "sizeDiv");
             }
             sizeDiv.onclick = this.toolsFuncs["sizeDiv"];
             divForSize.appendChild(sizeDiv);
         }
         return divForSize;
     }
-  
-    render() {
 
+    render() {
         const mainDiv = document.createElement("div");
         mainDiv.setAttribute("class", "tools");
 
@@ -77,8 +80,12 @@ class Tools {
         divOne.style.backgroundColor = this.state.colors.current;
         let inputOne = document.createElement("input");
         inputOne.className = "jscolor";
-        ChoosecolorCurrent()
-        inputOne.onchange = changeCurrColor(this.state, this.setState, this.that)
+        ChoosecolorCurrent();
+        inputOne.onchange = changeCurrColor(
+            this.state,
+            this.setState,
+            this.that
+        );
         divOne.appendChild(inputOne);
         divColor.appendChild(divOne);
 
@@ -89,14 +96,22 @@ class Tools {
         divTwo.style.backgroundColor = this.state.colors.previous;
         let inputTwo = document.createElement("input");
         inputTwo.className = "jscolorPrev";
-        ChoosecolorPrevious()
-        inputTwo.onchange = changePrevColor(this.state, this.setState, this.that)
+        ChoosecolorPrevious();
+        inputTwo.onchange = changePrevColor(
+            this.state,
+            this.setState,
+            this.that
+        );
         divTwo.appendChild(inputTwo);
         divColor.appendChild(divTwo);
 
         let divThree = document.createElement("div");
         divThree.innerHTML = `<i class="fas fa-exchange-alt"></i>`;
-        divThree.onclick = switchColorsFunc(this.state, this.setState, this.that)
+        divThree.onclick = switchColorsFunc(
+            this.state,
+            this.setState,
+            this.that
+        );
         divColor.appendChild(divThree);
         mainDiv.appendChild(divColor);
 

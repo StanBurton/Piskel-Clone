@@ -6,9 +6,7 @@ import Animation_layers from "./components/animation_layers";
 import Optional_panel from "./components/optionalPanel";
 import canvasBuild from "./screens/canvas/canvasBuild.js";
 import previewCanvasBuild from "./screens/preview/previewCanvasBuild.js";
-import frameCanvasBuild from "./screens/frame/frameCanvasBuild.js"
-
-
+import frameCanvasBuild from "./screens/frame/frameCanvasBuild.js";
 
 class APP {
     constructor() {
@@ -26,25 +24,29 @@ class APP {
         ];
     }
     getCount() {
-        if(localStorage.getItem("count")){
-            return JSON.parse(localStorage.getItem("count"))
-        }else{
-            return 0
+        if (localStorage.getItem("count")) {
+            return JSON.parse(localStorage.getItem("count"));
+        } else {
+            return 0;
         }
     }
     getState() {
-        if(localStorage.getItem("state")){
-            console.log(JSON.parse(localStorage.getItem("state")))
-            return JSON.parse(localStorage.getItem("state"), function(key, value){
-                if (typeof value === "string" &&
-                value.startsWith("/Function(") &&
-                value.endsWith(")/")) {
+        if (localStorage.getItem("state")) {
+            return JSON.parse(localStorage.getItem("state"), function(
+                key,
+                value
+            ) {
+                if (
+                    typeof value === "string" &&
+                    value.startsWith("/Function(") &&
+                    value.endsWith(")/")
+                ) {
                     value = value.substring(10, value.length - 2);
                     return eval("(" + value + ")");
                 }
                 return value;
-            })
-        }else{
+            });
+        } else {
             return {
                 animationSettings: {
                     fpsValue: 1
@@ -57,7 +59,7 @@ class APP {
                     scale: 0.8
                 },
                 canvasEventFunc: function penTool() {
-                    alert("Choose Tool!")
+                    alert("Choose Tool!");
                 },
                 currFrame: 0,
                 frames: [
@@ -79,7 +81,7 @@ class APP {
                         shortCut: {
                             key: 23,
                             hint: "Alt + 6"
-                        }  
+                        }
                     },
                     {
                         name: "Pen Tool",
@@ -87,7 +89,7 @@ class APP {
                         shortCut: {
                             key: 23,
                             hint: "P"
-                        }  
+                        }
                     },
                     {
                         name: "Vertical Mirror Pen",
@@ -95,7 +97,7 @@ class APP {
                         shortCut: {
                             key: 24,
                             hint: "H"
-                        } 
+                        }
                     },
                     {
                         name: "Paint Bucket Tool",
@@ -103,7 +105,7 @@ class APP {
                         shortCut: {
                             key: 25,
                             hint: "J"
-                        } 
+                        }
                     },
                     {
                         name: "Paint all pixels of the same color",
@@ -111,7 +113,7 @@ class APP {
                         shortCut: {
                             key: 26,
                             hint: "K"
-                        } 
+                        }
                     },
                     {
                         name: "Eraser Tool",
@@ -119,7 +121,7 @@ class APP {
                         shortCut: {
                             key: 27,
                             hint: "L"
-                        } 
+                        }
                     },
                     {
                         name: "Stroke Tool",
@@ -127,7 +129,7 @@ class APP {
                         shortCut: {
                             key: 28,
                             hint: "Y"
-                        } 
+                        }
                     },
                     {
                         name: "Rectangle Tool",
@@ -135,7 +137,7 @@ class APP {
                         shortCut: {
                             key: 29,
                             hint: "T"
-                        } 
+                        }
                     },
                     {
                         name: "Circle Tool",
@@ -143,7 +145,7 @@ class APP {
                         shortCut: {
                             key: 30,
                             hint: "R"
-                        } 
+                        }
                     },
                     {
                         name: "Move Tool",
@@ -151,7 +153,7 @@ class APP {
                         shortCut: {
                             key: 31,
                             hint: "Y"
-                        } 
+                        }
                     },
                     {
                         name: "Shape Selection",
@@ -159,7 +161,7 @@ class APP {
                         shortCut: {
                             key: 33,
                             hint: "U"
-                        } 
+                        }
                     },
                     {
                         name: "Rectangle Selection",
@@ -167,7 +169,7 @@ class APP {
                         shortCut: {
                             key: 34,
                             hint: "I"
-                        } 
+                        }
                     },
                     {
                         name: "Lasso Selection",
@@ -175,7 +177,7 @@ class APP {
                         shortCut: {
                             key: 34,
                             hint: "O"
-                        } 
+                        }
                     },
                     {
                         name: "Lighten",
@@ -183,7 +185,7 @@ class APP {
                         shortCut: {
                             key: 35,
                             hint: "Q"
-                        } 
+                        }
                     },
                     {
                         name: "Dithering Tool",
@@ -191,7 +193,7 @@ class APP {
                         shortCut: {
                             key: 37,
                             hint: "W"
-                        } 
+                        }
                     },
                     {
                         name: "Color Picker",
@@ -199,42 +201,41 @@ class APP {
                         shortCut: {
                             key: 38,
                             hint: "C"
-                        } 
-                    },
+                        }
+                    }
                 ]
             };
         }
     }
-    drawCanvas(){
+    drawCanvas() {
         new canvasBuild(this.state).draw();
         new frameCanvasBuild(this.state).draw();
         new previewCanvasBuild(this.state, this.that).draw();
     }
-    setStateSilent(newState){
+    setStateSilent(newState) {
         this.state = Object.assign(this.state, newState);
-        console.log("MAIN STATE Silent: ");
-        console.log(this.state);
     }
 
-    setState(newState){
+    setState(newState) {
         this.state = Object.assign(this.state, newState);
-        localStorage.setItem("state", JSON.stringify(this.state, function(key, value){
-            if(typeof value === "function"){
-                return "/Function(" + value.toString() + ")/";
-            }
-            return value
-        }));
+        localStorage.setItem(
+            "state",
+            JSON.stringify(this.state, function(key, value) {
+                if (typeof value === "function") {
+                    return "/Function(" + value.toString() + ")/";
+                }
+                return value;
+            })
+        );
         localStorage.setItem("count", JSON.stringify(this.count));
-        console.log("MAIN STATE: ");
-        console.log(this.state);
         this.render();
     }
 
     render(first) {
-        if(first){
+        if (first) {
             this.spriteName();
             return this.packaging();
-        }else{
+        } else {
             document.querySelector(".main").remove();
             document.querySelector("body").appendChild(this.packaging());
             this.drawCanvas();
@@ -244,15 +245,17 @@ class APP {
     packaging() {
         let mainDiv = document.createElement("div");
         mainDiv.setAttribute("class", "main");
-        this.components.forEach(component => mainDiv.appendChild(component.render()));
+        this.components.forEach(component =>
+            mainDiv.appendChild(component.render())
+        );
         return mainDiv;
     }
 
-    spriteName(){
-        if(this.state.spriteName == null){
+    spriteName() {
+        if (this.state.spriteName == null) {
             this.state.spriteName = prompt("Enter sprite name", "New Sprite *");
-        }else{
-            return
+        } else {
+            return;
         }
     }
 }
