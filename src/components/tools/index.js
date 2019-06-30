@@ -13,17 +13,13 @@ class Tools {
     constructor(state, setState, that) {
         this.state = state;
         this.setState = setState;
-        (this.that = that),
-            (this.toolsFuncs = {
-                sizeDiv: sizeDivFunc(this.state, this.setState, this.that),
-                penTool: penToolFunc(this.state, this.setState, this.that),
-                bucketTool: bucketToolFunc(
-                    this.state,
-                    this.setState,
-                    this.that
-                ),
-                eraserTool: eraserToolFunc(this.state, this.setState, this.that)
-            });
+        this.that = that;
+        this.toolsFuncs = {
+            sizeDiv: sizeDivFunc(this.state, this.setState, this.that),
+            penTool: penToolFunc(this.state, this.setState, this.that),
+            bucketTool: bucketToolFunc(this.state, this.setState, this.that),
+            eraserTool: eraserToolFunc(this.state, this.setState, this.that)
+        };
     }
 
     liGenerate() {
