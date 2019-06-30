@@ -294,14 +294,14 @@ body {
   background: linear-gradient(to right, #ffd700 50%, rgb(42, 42, 42) 50%);
   background-size: 200% 100%;
   background-position: right bottom;
-  transition: all 1s;
+  transition: all 1s ease-in-out;
 }
 
 .features__itemsBlock__items:hover {
   background: linear-gradient(to right, #ffd700 50%, rgb(42, 42, 42) 50%);
   background-size: 200% 100%;
   background-position: left bottom;
-  transition: all 1s;
+  transition: all 1s ease-in-out;
   cursor: pointer;
 }
 

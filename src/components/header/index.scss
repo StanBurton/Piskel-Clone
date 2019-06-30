@@ -8,20 +8,25 @@
     z-index: 2;
     
     a {
+        width: 30%;
         color: #ffffff;
-        margin: 0 39% 0 2%;
+        margin: 0 0 0 2%;
         font-size: 2vw;
         font-weight: 900;
+        text-align: left;
     }
     h2 {
         color: #888888;
         white-space: nowrap;
         font-weight: 400;
         font-size: 2vw;
-        margin: 0 28.2% 0 0;
+        width: 36%;
+        text-align: center;
     }
     div {
-        @include flexbox(row, flex-start, center);
+        @include flexbox(row, flex-end, center);
+        width: 30%;
+        margin-right: 2%;
 
         button {
             white-space: nowrap;
@@ -40,7 +45,7 @@
         }
 
         button:first-child {
-            margin: 0 0.3vw 0 0;
+            margin: 0 1% 0 0;
         }
 
     }
