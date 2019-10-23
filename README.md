@@ -1,2 +1,5 @@
-# Link to app: 
-https://stassras.github.io/Piskel-Clone/
+**This is an application for creating animation and drawing**  
+  
+![PiskelCloneScreen](PiskelCloneScreen.png)  
+
+**[Link to App](https://stassras.github.io/Piskel-Clone/)**
