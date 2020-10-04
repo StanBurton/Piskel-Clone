@@ -2,4 +2,4 @@
   
 ![PiskelCloneScreen](PiskelCloneScreen.png)  
 
-**[Link to App](https://stassras.github.io/Piskel-Clone/)**
+**[Link to App](https://stanburton.github.io/Piskel-Clone/)**
