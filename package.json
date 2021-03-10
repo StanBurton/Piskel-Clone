@@ -24,7 +24,7 @@
     "gif.js.optimized": "^1.0.1",
     "live-server": "^1.2.1",
     "node-sass": "^4.12.0",
-    "npm": "^6.9.0",
+    "npm": "^6.14.6",
     "style-loader": "^0.23.1"
   }
 }
